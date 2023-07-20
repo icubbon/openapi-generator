@@ -210,8 +210,8 @@ func (c *UserAPIController) GetUserByName(w http.ResponseWriter, r *http.Request
 // LoginUser - Logs user into the system
 func (c *UserAPIController) LoginUser(w http.ResponseWriter, r *http.Request) {
 	query := r.URL.Query()
-	usernameParam :=  query.Get("username")
-	passwordParam :=  query.Get("password")
+	usernameParam := query.Get("username")
+	passwordParam := query.Get("password")
 	booleanTestParam, err := parseBoolParameter(
 		query.Get("boolean_test"),
 		WithParse[bool](parseBool),
