@@ -352,7 +352,7 @@ func (c *{{classname}}Controller) {{nickname}}(w http.ResponseWriter, r *http.Re
 	}
 	{{/defaultValue}}
 	{{^defaultValue}}
-	{{paramName}}Param := {{#isEnumOrRef}}{{dataType}}( {{/isEnumOrRef}} query.Get("{{baseName}}"){{#isEnumOrRef}} ){{/isEnumOrRef}}
+	{{paramName}}Param := {{#isEnumOrRef}}{{dataType}}({{/isEnumOrRef}}query.Get("{{baseName}}"){{#isEnumOrRef}} ){{/isEnumOrRef}}
 	{{/defaultValue}}
 	{{/isArray}}
 	{{/isBoolean}}
