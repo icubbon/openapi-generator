@@ -162,12 +162,21 @@ func (c *{{classname}}Controller) {{nickname}}(w http.ResponseWriter, r *http.Re
 		return
 	}
 	{{/isInteger}}
+	{{#isDateTime}}
+	{{paramName}}Param, err := time.Parse(time.RFC3339, {{#routers}}{{#mux}}params["{{baseName}}"]{{/mux}}{{#chi}}chi.URLParam(r, "{{baseName}}"){{/chi}}{{/routers}})
+	if err != nil {
+		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+		return
+	}
+	{{/isDateTime}}
 	{{^isNumber}}
 	{{^isFloat}}
 	{{^isDouble}}
 	{{^isLong}}
 	{{^isInteger}}
+	{{^isDateTime}}
 	{{paramName}}Param := {{#routers}}{{#mux}}params["{{baseName}}"]{{/mux}}{{#chi}}chi.URLParam(r, "{{baseName}}"){{/chi}}{{/routers}}
+	{{/isDateTime}}
 	{{/isInteger}}
 	{{/isLong}}
 	{{/isDouble}}
@@ -175,6 +184,13 @@ func (c *{{classname}}Controller) {{nickname}}(w http.ResponseWriter, r *http.Re
 	{{/isNumber}}
 	{{/isPathParam}}
 	{{#isQueryParam}}
+	{{#isDateTime}}
+	{{paramName}}Param, err := time.Parse(time.RFC3339, query.Get("{{baseName}}"))
+	if err != nil {
+		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+		return
+	}
+	{{/isDateTime}}
 	{{#isNumber}}
 	{{paramName}}Param, err := parseNumericParameter[float32](
 		query.Get("{{baseName}}"),{{#defaultValue}}
@@ -318,12 +334,26 @@ func (c *{{classname}}Controller) {{nickname}}(w http.ResponseWriter, r *http.Re
 		return
 	}
 	{{/items.isInteger}}
+	{{#items.isDateTime}}
+	var {{paramName}}Param []time.Time
+	for t := range strings.Split(query.Get("{{baseName}}"), ",") {
+		parsedTime, err := time.Parse(time.RFC3339, t)
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+		{{paramName}}Param = append({{paramName}}Param, parsedTime)
+	}
+	
+	{{/items.isDateTime}}
 	{{^items.isNumber}}
 	{{^items.isFloat}}
 	{{^items.isDouble}}
 	{{^items.isLong}}
 	{{^items.isInteger}}
+	{{^items.isDateTime}}
 	{{paramName}}Param := strings.Split(query.Get("{{baseName}}"), ",")
+	{{/items.isDateTime}}
 	{{/items.isInteger}}
 	{{/items.isLong}}
 	{{/items.isDouble}}
@@ -337,6 +367,7 @@ func (c *{{classname}}Controller) {{nickname}}(w http.ResponseWriter, r *http.Re
 	{{^isInteger}}
 	{{^isBoolean}}
 	{{^isArray}}
+	{{^isDateTime}}
 	{{#defaultValue}}
 	{{paramName}}Param := "{{defaultValue}}"
 	if query.Has("{{baseName}}") {
@@ -346,6 +377,7 @@ func (c *{{classname}}Controller) {{nickname}}(w http.ResponseWriter, r *http.Re
 	{{^defaultValue}}
 	{{paramName}}Param := query.Get("{{baseName}}")
 	{{/defaultValue}}
+	{{/isDateTime}}
 	{{/isArray}}
 	{{/isBoolean}}
 	{{/isInteger}}
