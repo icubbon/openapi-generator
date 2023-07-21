@@ -175,7 +175,7 @@ func (c *{{classname}}Controller) {{nickname}}(w http.ResponseWriter, r *http.Re
 	{{^isLong}}
 	{{^isInteger}}
 	{{^isDateTime}}
-	{{paramName}}Param := {{#routers}}{{#mux}}params["{{baseName}}"]{{/mux}}{{#chi}}chi.URLParam(r, "{{baseName}}"){{/chi}}{{/routers}}
+	{{paramName}}Param := {{#routers}}{{#mux}}{{#isEnumOrRef}}{{dataType}}({{/isEnumOrRef}}params["{{baseName}}"]{{/mux}}{{#isEnumOrRef}}){{/isEnumOrRef}}{{#chi}}chi.URLParam(r, "{{baseName}}"){{/chi}}{{/routers}}
 	{{/isDateTime}}
 	{{/isInteger}}
 	{{/isLong}}
@@ -352,8 +352,16 @@ func (c *{{classname}}Controller) {{nickname}}(w http.ResponseWriter, r *http.Re
 	{{^items.isLong}}
 	{{^items.isInteger}}
 	{{^items.isDateTime}}
+	{{^items.isEnumRef}}
 	{{paramName}}Param := strings.Split(query.Get("{{baseName}}"), ",")
 	{{/items.isDateTime}}
+	{{/items.isEnumRef}}
+	{{#items.isEnumRef}}
+	var {{paramName}}Param []{{items.dataType}}
+	for param := range strings.Split(query.Get("{{baseName}}"), ",") {
+		{{paramName}}Param = append({{paramName}}Param, {{items.dataType}}(param))
+	}
+	{{/items.isEnumRef}}
 	{{/items.isInteger}}
 	{{/items.isLong}}
 	{{/items.isDouble}}
@@ -375,7 +383,7 @@ func (c *{{classname}}Controller) {{nickname}}(w http.ResponseWriter, r *http.Re
 	}
 	{{/defaultValue}}
 	{{^defaultValue}}
-	{{paramName}}Param := query.Get("{{baseName}}")
+	{{paramName}}Param := {{#isEnumOrRef}}{{dataType}}({{/isEnumOrRef}}query.Get("{{baseName}}"){{#isEnumOrRef}} ){{/isEnumOrRef}}
 	{{/defaultValue}}
 	{{/isDateTime}}
 	{{/isArray}}
