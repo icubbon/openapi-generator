@@ -344,7 +344,16 @@ func (c *{{classname}}Controller) {{nickname}}(w http.ResponseWriter, r *http.Re
 	}
 	{{/defaultValue}}
 	{{^defaultValue}}
+	{{^required}}
+	var {{paramName}}Param *{{dataType}}
+	if query.Has("{{baseName}}") {
+		param := query.Get("{{baseName}}")
+		{{paramName}}Param = &param
+	}
+	{{/required}}
+	{{#required}}
 	{{paramName}}Param := query.Get("{{baseName}}")
+	{{/required}}
 	{{/defaultValue}}
 	{{/isArray}}
 	{{/isBoolean}}
