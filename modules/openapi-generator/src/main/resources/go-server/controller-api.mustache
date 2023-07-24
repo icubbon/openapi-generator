@@ -383,7 +383,16 @@ func (c *{{classname}}Controller) {{nickname}}(w http.ResponseWriter, r *http.Re
 	}
 	{{/defaultValue}}
 	{{^defaultValue}}
+	{{^required}}
+	var {{paramName}}Param *{{dataType}}
+	if query.Has("{{baseName}}") {
+		param := {{#isEnumOrRef}}{{dataType}}({{/isEnumOrRef}}query.Get("{{baseName}}"){{#isEnumOrRef}} ){{/isEnumOrRef}}
+		{{paramName}}Param = &param
+	}
+	{{/required}}
+	{{#required}}
 	{{paramName}}Param := {{#isEnumOrRef}}{{dataType}}({{/isEnumOrRef}}query.Get("{{baseName}}"){{#isEnumOrRef}} ){{/isEnumOrRef}}
+	{{/required}}
 	{{/defaultValue}}
 	{{/isDateTime}}
 	{{/isArray}}
