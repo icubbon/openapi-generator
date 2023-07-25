@@ -371,7 +371,7 @@ func (c *{{classname}}Controller) {{nickname}}(w http.ResponseWriter, r *http.Re
 	{{/items.isDateTime}}
 	{{#items.isEnumRef}}
 	var {{paramName}}Param []{{items.dataType}}
-	for param := range strings.Split(query.Get("{{baseName}}"), ",") {
+	for _, param := range strings.Split(query.Get("{{baseName}}"), ",") {
 		{{paramName}}Param = append({{paramName}}Param, {{items.dataType}}(param))
 	}
 	{{/items.isEnumRef}}
