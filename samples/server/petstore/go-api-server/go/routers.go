@@ -142,42 +142,62 @@ type Number interface {
 	~int32 | ~int64 | ~float32 | ~float64
 }
 
-type ParseString[T Number | string | bool] func(v string) (T, error)
+type ParseString[T Number | string | bool] func(v string) (*T, error)
 
 // parseFloat64 parses a string parameter to an float64.
-func parseFloat64(param string) (float64, error) {
-	return strconv.ParseFloat(param, 64)
+func parseFloat64(param string) (*float64, error) {
+	if param == "" {
+		return nil, nil
+	}
+	v, err := strconv.ParseFloat(param, 64)
+	return &v, err
 }
 
 // parseFloat32 parses a string parameter to an float32.
-func parseFloat32(param string) (float32, error) {
+func parseFloat32(param string) (*float32, error) {
+	if param == "" {
+		return nil, nil
+	}
 	v, err := strconv.ParseFloat(param, 32)
-	return float32(v), err
+	f := float32(v)
+	return &f, err
 }
 
 // parseInt64 parses a string parameter to an int64.
-func parseInt64(param string) (int64, error) {
-	return strconv.ParseInt(param, 10, 64)
+func parseInt64(param string) (*int64, error) {
+	if param == "" {
+		return nil, nil
+	}
+	v, err := strconv.ParseInt(param, 10, 64)
+	return &v, err
 }
 
 // parseInt32 parses a string parameter to an int32.
-func parseInt32(param string) (int32, error) {
+func parseInt32(param string) (*int32, error) {
+	if param == "" {
+		return nil, nil
+	}
 	val, err := strconv.ParseInt(param, 10, 32)
-	return int32(val), err
+	v := int32(val)
+	return &v, err
 }
 
 // parseBool parses a string parameter to an bool.
-func parseBool(param string) (bool, error) {
-	return strconv.ParseBool(param)
+func parseBool(param string) (*bool, error) {
+	if param == "" {
+		return nil, nil
+	}
+	b, err := strconv.ParseBool(param)
+	return &b, err
 }
 
-type Operation[T Number | string | bool] func(actual string) (T, bool, error)
+type Operation[T Number | string | bool] func(actual string) (*T, bool, error)
 
 func WithRequire[T Number | string | bool](parse ParseString[T]) Operation[T] {
 	var empty T
-	return func(actual string) (T, bool, error) {
+	return func(actual string) (*T, bool, error) {
 		if actual == "" {
-			return empty, false, errors.New(errMsgRequiredMissing)
+			return &empty, false, errors.New(errMsgRequiredMissing)
 		}
 
 		v, err := parse(actual)
@@ -186,9 +206,9 @@ func WithRequire[T Number | string | bool](parse ParseString[T]) Operation[T] {
 }
 
 func WithDefaultOrParse[T Number | string | bool](def T, parse ParseString[T]) Operation[T] {
-	return func(actual string) (T, bool, error) {
+	return func(actual string) (*T, bool, error) {
 		if actual == "" {
-			return def, true, nil
+			return &def, true, nil
 		}
 
 		v, err := parse(actual)
@@ -197,7 +217,7 @@ func WithDefaultOrParse[T Number | string | bool](def T, parse ParseString[T]) O
 }
 
 func WithParse[T Number | string | bool](parse ParseString[T]) Operation[T] {
-	return func(actual string) (T, bool, error) {
+	return func(actual string) (*T, bool, error) {
 		v, err := parse(actual)
 		return v, false, err
 	}
@@ -226,16 +246,16 @@ func WithMaximum[T Number](expected T) Constraint[T] {
 }
 
 // parseNumericParameter parses a numeric parameter to its respective type.
-func parseNumericParameter[T Number](param string, fn Operation[T], checks ...Constraint[T]) (T, error) {
+func parseNumericParameter[T Number](param string, fn Operation[T], checks ...Constraint[T]) (*T, error) {
 	v, ok, err := fn(param)
 	if err != nil {
-		return 0, err
+		return nil, err
 	}
 
 	if !ok {
 		for _, check := range checks {
-			if err := check(v); err != nil {
-				return 0, err
+			if err := check(*v); err != nil {
+				return nil, err
 			}
 		}
 	}
@@ -244,7 +264,10 @@ func parseNumericParameter[T Number](param string, fn Operation[T], checks ...Co
 }
 
 // parseBoolParameter parses a string parameter to a bool
-func parseBoolParameter(param string, fn Operation[bool]) (bool, error) {
+func parseBoolParameter(param string, fn Operation[bool]) (*bool, error) {
+	if param == "" {
+		return nil, nil
+	}
 	v, _, err := fn(param)
 	return v, err
 }
@@ -270,13 +293,13 @@ func parseNumericArrayParameter[T Number](param, delim string, required bool, fn
 
 		if !ok {
 			for _, check := range checks {
-				if err := check(v); err != nil {
+				if err := check(*v); err != nil {
 					return nil, err
 				}
 			}
 		}
 
-		values[i] = v
+		values[i] = *v
 	}
 
 	return values, nil

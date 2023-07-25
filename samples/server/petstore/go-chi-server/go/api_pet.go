@@ -95,22 +95,26 @@ func (c *PetAPIController) Routes() Routes {
 
 // AddPet - Add a new pet to the store
 func (c *PetAPIController) AddPet(w http.ResponseWriter, r *http.Request) {
-	petParam := Pet{}
+	petParam := &Pet{}
 	d := json.NewDecoder(r.Body)
 	d.DisallowUnknownFields()
-	if err := d.Decode(&petParam); err != nil {
+	if err := d.Decode(petParam); err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-	if err := AssertPetRequired(petParam); err != nil {
+	if petParam == nil {
+		c.errorHandler(w, r, &ParsingError{Err: errors.New("required parameter Pet is missing")}, nil)
+		return
+	}
+	if err := AssertPetRequired(*petParam); err != nil {
 		c.errorHandler(w, r, err, nil)
 		return
 	}
-	if err := AssertPetConstraints(petParam); err != nil {
+	if err := AssertPetConstraints(*petParam); err != nil {
 		c.errorHandler(w, r, err, nil)
 		return
 	}
-	result, err := c.service.AddPet(r.Context(), petParam)
+	result, err := c.service.AddPet(r.Context(), *petParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
 		c.errorHandler(w, r, err, &result)
@@ -192,22 +196,26 @@ func (c *PetAPIController) GetPetById(w http.ResponseWriter, r *http.Request) {
 
 // UpdatePet - Update an existing pet
 func (c *PetAPIController) UpdatePet(w http.ResponseWriter, r *http.Request) {
-	petParam := Pet{}
+	petParam := &Pet{}
 	d := json.NewDecoder(r.Body)
 	d.DisallowUnknownFields()
-	if err := d.Decode(&petParam); err != nil {
+	if err := d.Decode(petParam); err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-	if err := AssertPetRequired(petParam); err != nil {
+	if petParam == nil {
+		c.errorHandler(w, r, &ParsingError{Err: errors.New("required parameter Pet is missing")}, nil)
+		return
+	}
+	if err := AssertPetRequired(*petParam); err != nil {
 		c.errorHandler(w, r, err, nil)
 		return
 	}
-	if err := AssertPetConstraints(petParam); err != nil {
+	if err := AssertPetConstraints(*petParam); err != nil {
 		c.errorHandler(w, r, err, nil)
 		return
 	}
-	result, err := c.service.UpdatePet(r.Context(), petParam)
+	result, err := c.service.UpdatePet(r.Context(), *petParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
 		c.errorHandler(w, r, err, &result)

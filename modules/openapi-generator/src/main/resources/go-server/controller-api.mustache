@@ -185,11 +185,24 @@ func (c *{{classname}}Controller) {{nickname}}(w http.ResponseWriter, r *http.Re
 	{{/isPathParam}}
 	{{#isQueryParam}}
 	{{#isDateTime}}
+	{{#required}}
 	{{paramName}}Param, err := time.Parse(time.RFC3339, query.Get("{{baseName}}"))
 	if err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
+	{{/required}}
+	{{^required}}
+	var {{paramName}}Param *time.Time
+	if query.Has("{{baseName}}") {
+		param, err := time.Parse(time.RFC3339, query.Get("{{baseName}}"))
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+		{{paramName}}Param = &param
+	}
+	{{/required}}
 	{{/isDateTime}}
 	{{#isNumber}}
 	{{paramName}}Param, err := parseNumericParameter[float32](
@@ -354,8 +367,8 @@ func (c *{{classname}}Controller) {{nickname}}(w http.ResponseWriter, r *http.Re
 	{{^items.isDateTime}}
 	{{^items.isEnumRef}}
 	{{paramName}}Param := strings.Split(query.Get("{{baseName}}"), ",")
-	{{/items.isDateTime}}
 	{{/items.isEnumRef}}
+	{{/items.isDateTime}}
 	{{#items.isEnumRef}}
 	var {{paramName}}Param []{{items.dataType}}
 	for param := range strings.Split(query.Get("{{baseName}}"), ",") {
@@ -447,14 +460,24 @@ func (c *{{classname}}Controller) {{nickname}}(w http.ResponseWriter, r *http.Re
 	{{paramName}}Param := r.Header.Get("{{baseName}}")
 	{{/isHeaderParam}}
 	{{#isBodyParam}}
-	{{paramName}}Param := {{dataType}}{}
+	{{paramName}}Param := &{{dataType}}{}
 	d := json.NewDecoder(r.Body)
 	{{^isAdditionalPropertiesTrue}}
 	d.DisallowUnknownFields()
 	{{/isAdditionalPropertiesTrue}}
-	if err := d.Decode(&{{paramName}}Param); err != nil {
+	if err := d.Decode({{paramName}}Param); err != nil {
+		{{^required}}
+		if err == io.EOF {
+			{{paramName}}Param = nil
+		} else {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+		{{/required}}
+		{{#required}}
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
+		{{/required}}
 	}
 	{{#isArray}}
 		{{#items.isModel}}
@@ -468,19 +491,31 @@ func (c *{{classname}}Controller) {{nickname}}(w http.ResponseWriter, r *http.Re
 	{{/isArray}}
 	{{^isArray}}
 		{{#isModel}}
-	if err := Assert{{baseType}}Required({{paramName}}Param); err != nil {
+	{{#required}}
+	if {{paramName}}Param == nil {
+		c.errorHandler(w, r, &ParsingError{Err: errors.New("required parameter {{baseName}} is missing")}, nil)
+		return
+	}
+	{{/required}}
+	{{^required}}
+	if {{paramName}}Param != nil {
+	{{/required}}	
+	if err := Assert{{baseType}}Required(*{{paramName}}Param); err != nil {
 		c.errorHandler(w, r, err, nil)
 		return
 	}
-	if err := Assert{{baseType}}Constraints({{paramName}}Param); err != nil {
+	if err := Assert{{baseType}}Constraints(*{{paramName}}Param); err != nil {
 		c.errorHandler(w, r, err, nil)
 		return
 	}
+	{{^required}}
+	}
+	{{/required}}
 		{{/isModel}}
 	{{/isArray}}
 	{{/isBodyParam}}
 	{{/allParams}}
-	result, err := c.service.{{nickname}}(r.Context(){{#allParams}}, {{paramName}}Param{{/allParams}})
+	result, err := c.service.{{nickname}}(r.Context(){{#allParams}}, {{#isModel}}{{#required}}*{{/required}}{{/isModel}}{{paramName}}Param{{/allParams}})
 	// If an error occurred, encode the error with the status code
 	if err != nil {
 		c.errorHandler(w, r, err, &result)
