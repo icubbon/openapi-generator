@@ -283,6 +283,9 @@ func parseNumericParameter[T Number](param string, fn Operation[T], checks ...Co
 	if err != nil {
 		return nil, err
 	}
+	if v == nil {
+		return nil, nil
+	}
 
 	if !ok {
 		for _, check := range checks {

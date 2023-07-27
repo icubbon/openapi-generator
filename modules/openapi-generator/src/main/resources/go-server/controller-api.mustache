@@ -366,13 +366,18 @@ func (c *{{classname}}Controller) {{nickname}}(w http.ResponseWriter, r *http.Re
 	{{^items.isInteger}}
 	{{^items.isDateTime}}
 	{{^items.isEnumRef}}
-	{{paramName}}Param := strings.Split(query.Get("{{baseName}}"), ",")
+	var {{paramName}}Param [] string
+	if query.Has("{{baseName}}") {
+		{{paramName}}Param = strings.Split(query.Get("{{baseName}}"), ",")
+	}
 	{{/items.isEnumRef}}
 	{{/items.isDateTime}}
 	{{#items.isEnumRef}}
 	var {{paramName}}Param []{{items.dataType}}
-	for _, param := range strings.Split(query.Get("{{baseName}}"), ",") {
-		{{paramName}}Param = append({{paramName}}Param, {{items.dataType}}(param))
+	if query.Has("{{baseName}}") {
+		for _, param := range strings.Split(query.Get("{{baseName}}"), ",") {
+			{{paramName}}Param = append({{paramName}}Param, {{items.dataType}}(param))
+		}
 	}
 	{{/items.isEnumRef}}
 	{{/items.isInteger}}
