@@ -175,7 +175,17 @@ func (c *{{classname}}Controller) {{nickname}}(w http.ResponseWriter, r *http.Re
 	{{^isLong}}
 	{{^isInteger}}
 	{{^isDateTime}}
-	{{paramName}}Param := {{#routers}}{{#mux}}{{#isEnumOrRef}}{{dataType}}({{/isEnumOrRef}}params["{{baseName}}"]{{/mux}}{{#isEnumOrRef}}){{/isEnumOrRef}}{{#chi}}chi.URLParam(r, "{{baseName}}"){{/chi}}{{/routers}}
+	{{^isEnumOrRef}}
+	{{paramName}}Param := {{#routers}}{{#mux}}params["{{baseName}}"]{{/mux}}{{#chi}}chi.URLParam(r, "{{baseName}}"){{/chi}}{{/routers}}
+	{{/isEnumOrRef}}
+	{{#isEnumOrRef}}
+	{{paramName}}ParamPtr, err := New{{dataType}}FromValue({{#routers}}{{#mux}}params["{{baseName}}"]{{/mux}}{{#chi}}chi.URLParam(r, "{{baseName}}"){{/chi}}{{/routers}})
+	if err != nil {
+		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+		return
+	}
+	{{paramName}}Param := *{{paramName}}ParamPtr
+	{{/isEnumOrRef}}
 	{{/isDateTime}}
 	{{/isInteger}}
 	{{/isLong}}
@@ -282,7 +292,7 @@ func (c *{{classname}}Controller) {{nickname}}(w http.ResponseWriter, r *http.Re
 		WithParse[bool](parseBool),{{/required}}{{/defaultValue}}
 	)
 	if err != nil {
-		w.WriteHeader(500)
+		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
 	{{/isBoolean}}
@@ -376,7 +386,12 @@ func (c *{{classname}}Controller) {{nickname}}(w http.ResponseWriter, r *http.Re
 	var {{paramName}}Param []{{items.dataType}}
 	if query.Has("{{baseName}}") {
 		for _, param := range strings.Split(query.Get("{{baseName}}"), ",") {
-			{{paramName}}Param = append({{paramName}}Param, {{items.dataType}}(param))
+			paramEnum, err := New{{items.dataType}}FromValue(param)
+			if err != nil {
+				c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+				return
+			}
+			{{paramName}}Param = append({{paramName}}Param, *paramEnum)
 		}
 	}
 	{{/items.isEnumRef}}
@@ -404,12 +419,31 @@ func (c *{{classname}}Controller) {{nickname}}(w http.ResponseWriter, r *http.Re
 	{{^required}}
 	var {{paramName}}Param *{{dataType}}
 	if query.Has("{{baseName}}") {
-		param := {{#isEnumOrRef}}{{dataType}}({{/isEnumOrRef}}query.Get("{{baseName}}"){{#isEnumOrRef}} ){{/isEnumOrRef}}
+		{{^isEnumOrRef}}
+		param := query.Get("{{baseName}}")
 		{{paramName}}Param = &param
+		{{/isEnumOrRef}}
+		{{#isEnumOrRef}}
+		var err error
+		{{paramName}}Param, err = New{{dataType}}FromValue(query.Get("{{baseName}}"))
+		if err != nil {
+			c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+			return
+		}
+		{{/isEnumOrRef}}
 	}
 	{{/required}}
 	{{#required}}
-	{{paramName}}Param := {{#isEnumOrRef}}{{dataType}}({{/isEnumOrRef}}query.Get("{{baseName}}"){{#isEnumOrRef}} ){{/isEnumOrRef}}
+	{{^isEnumOrRef}}
+	{{paramName}}Param := query.Get("{{baseName}}")
+	{{/isEnumOrRef}}
+	{{#isEnumOrRef}}
+	{{paramName}}Param, err := New{{dataType}}FromValue(query.Get("{{baseName}}"))
+	if err != nil {
+		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
+		return
+	}
+	{{/isEnumOrRef}}
 	{{/required}}
 	{{/defaultValue}}
 	{{/isDateTime}}
@@ -526,13 +560,6 @@ func (c *{{classname}}Controller) {{nickname}}(w http.ResponseWriter, r *http.Re
 		c.errorHandler(w, r, err, &result)
 		return
 	}
-	{{#responses}}{{#isFile}}
-	// If no error, encode the file and the result code
-	SendFile(result.Body, &result.Code,{{#addResponseHeaders}} result.Headers,{{/addResponseHeaders}} w)
-	{{/isFile}}
-	{{^isFile}}
 	// If no error, encode the body and the result code
 	EncodeJSONResponse(result.Body, &result.Code,{{#addResponseHeaders}} result.Headers,{{/addResponseHeaders}} w)
-	{{/isFile}}{{/responses}
-
 }{{/operation}}{{/operations}}
