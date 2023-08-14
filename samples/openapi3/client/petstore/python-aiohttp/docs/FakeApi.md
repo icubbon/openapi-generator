@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**fake_outer_number_serialize**](FakeApi.md#fake_outer_number_serialize) | **POST** /fake/outer/number | 
 [**fake_outer_string_serialize**](FakeApi.md#fake_outer_string_serialize) | **POST** /fake/outer/string | 
 [**fake_property_enum_integer_serialize**](FakeApi.md#fake_property_enum_integer_serialize) | **POST** /fake/property/enum-int | 
+[**fake_return_list_of_objects**](FakeApi.md#fake_return_list_of_objects) | **GET** /fake/return_list_of_object | test returning list of objects
 [**test_body_with_binary**](FakeApi.md#test_body_with_binary) | **PUT** /fake/body-with-binary | 
 [**test_body_with_file_schema**](FakeApi.md#test_body_with_file_schema) | **PUT** /fake/body-with-file-schema | 
 [**test_body_with_query_params**](FakeApi.md#test_body_with_query_params) | **PUT** /fake/body-with-query-params | 
@@ -58,6 +59,7 @@ async with petstore_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling FakeApi->fake_any_type_request_body: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -122,6 +124,7 @@ async with petstore_api.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -144,7 +147,7 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+**200** | Get successful |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -183,6 +186,7 @@ async with petstore_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling FakeApi->fake_health_get: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -313,6 +317,7 @@ async with petstore_api.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -377,6 +382,7 @@ async with petstore_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling FakeApi->fake_outer_boolean_serialize: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -444,6 +450,7 @@ async with petstore_api.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -508,6 +515,7 @@ async with petstore_api.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -570,6 +578,7 @@ async with petstore_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling FakeApi->fake_outer_string_serialize: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -637,6 +646,7 @@ async with petstore_api.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -660,6 +670,67 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Output enum (int) |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **fake_return_list_of_objects**
+> List[List[Tag]] fake_return_list_of_objects()
+
+test returning list of objects
+
+### Example
+
+```python
+import time
+import os
+import petstore_api
+from petstore_api.models.tag import Tag
+from petstore_api.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://petstore.swagger.io:80/v2
+# See configuration.py for a list of all supported configuration parameters.
+configuration = petstore_api.Configuration(
+    host = "http://petstore.swagger.io:80/v2"
+)
+
+
+# Enter a context with an instance of the API client
+async with petstore_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = petstore_api.FakeApi(api_client)
+
+    try:
+        # test returning list of objects
+        api_response = await api_instance.fake_return_list_of_objects()
+        print("The response of FakeApi->fake_return_list_of_objects:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling FakeApi->fake_return_list_of_objects: %s\n" % e)
+```
+
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**List[List[Tag]]**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -697,6 +768,7 @@ async with petstore_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling FakeApi->test_body_with_binary: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -762,6 +834,7 @@ async with petstore_api.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -822,6 +895,7 @@ async with petstore_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling FakeApi->test_body_with_query_params: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -891,6 +965,7 @@ async with petstore_api.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -950,6 +1025,7 @@ async with petstore_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling FakeApi->test_date_time_query_parameter: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -1039,6 +1115,7 @@ async with petstore_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling FakeApi->test_endpoint_parameters: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -1134,6 +1211,7 @@ async with petstore_api.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -1202,6 +1280,7 @@ async with petstore_api.ApiClient(configuration) as api_client:
 ```
 
 
+
 ### Parameters
 
 Name | Type | Description  | Notes
@@ -1264,6 +1343,7 @@ async with petstore_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling FakeApi->test_json_form_data: %s\n" % e)
 ```
+
 
 
 ### Parameters
@@ -1333,6 +1413,7 @@ async with petstore_api.ApiClient(configuration) as api_client:
     except Exception as e:
         print("Exception when calling FakeApi->test_query_parameter_collection_format: %s\n" % e)
 ```
+
 
 
 ### Parameters

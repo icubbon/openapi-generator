@@ -15,6 +15,7 @@ import (
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"io/ioutil"
+	"io"
 	"mime/multipart"
 	"net/http"
 	"os"
@@ -64,17 +65,35 @@ func EncodeJSONResponse(i interface{}, status *int, headers map[string][]string,
 			wHeader.Add(key, value)
 		}
 	}
+
+	f, ok := i.(*os.File)
+	if ok {
+		data, err := io.ReadAll(f)
+		if err != nil {
+			return err
+		}
+		wHeader.Set("Content-Type", http.DetectContentType(data))
+		wHeader.Set("Content-Disposition", "attachment; filename="+f.Name())
+
+		if status != nil {
+			w.WriteHeader(*status)
+		} else {
+			w.WriteHeader(http.StatusOK)
+		}
+		_, err = w.Write(data)
+		return err
+	} 
 	wHeader.Set("Content-Type", "application/json; charset=UTF-8")
+
 	if status != nil {
 		w.WriteHeader(*status)
 	} else {
 		w.WriteHeader(http.StatusOK)
 	}
-
 	if i != nil {
 		return json.NewEncoder(w).Encode(i)
 	}
-
+		
 	return nil
 }
 
@@ -246,6 +265,9 @@ func parseNumericParameter[T Number](param string, fn Operation[T], checks ...Co
 	v, ok, err := fn(param)
 	if err != nil {
 		return nil, err
+	}
+	if v == nil {
+		return nil, nil
 	}
 
 	if !ok {
