@@ -50,7 +50,6 @@ defmodule OpenapiPetstore.Model.FormatTest do
   def decode(value) do
     value
      |> Deserializer.deserialize(:date, :date, nil)
-     |> Deserializer.deserialize(:dateTime, :datetime, nil)
   end
 end
 

@@ -73,6 +73,4 @@ class SelfReferenceModel(BaseModel):
         })
         return _obj
 
-from petstore_api.models.dummy_model import DummyModel
-SelfReferenceModel.update_forward_refs()
 

@@ -18,9 +18,9 @@ package Samples.Petstore.Clients is
    --  parameter name mapping test
    procedure Get_Parameter_Name_Mapping
       (Client : in out Client_Type;
-       UnderscoreType : in Swagger.Long;
-       P_Type : in Swagger.UString;
-       TypeWithUnderscore : in Swagger.UString;
+       P_Type : in Swagger.Long;
+       P_Type2 : in Swagger.UString;
+       P_Type3 : in Swagger.UString;
        Http_Debug_Option : in Swagger.UString);
 
    --  Add a new pet to the store

@@ -309,7 +309,7 @@ internal class UserApi(basePath: kotlin.String = defaultBasePath, client: OkHttp
         
         return RequestConfig(
             method = RequestMethod.DELETE,
-            path = "/user/{username}".replace("{"+"username"+"}", encodeURIComponent(username.toString())),
+            path = "/user/{username}".replace("{"+""+"}", encodeURIComponent(username.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -380,7 +380,7 @@ internal class UserApi(basePath: kotlin.String = defaultBasePath, client: OkHttp
 
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/user/{username}".replace("{"+"username"+"}", encodeURIComponent(username.toString())),
+            path = "/user/{username}".replace("{"+""+"}", encodeURIComponent(username.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
@@ -450,8 +450,8 @@ internal class UserApi(basePath: kotlin.String = defaultBasePath, client: OkHttp
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                put("username", listOf(username.toString()))
-                put("password", listOf(password.toString()))
+                put("", listOf(username.toString()))
+                put("", listOf(password.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Accept"] = "application/json"
@@ -594,7 +594,7 @@ internal class UserApi(basePath: kotlin.String = defaultBasePath, client: OkHttp
         
         return RequestConfig(
             method = RequestMethod.PUT,
-            path = "/user/{username}".replace("{"+"username"+"}", encodeURIComponent(username.toString())),
+            path = "/user/{username}".replace("{"+""+"}", encodeURIComponent(username.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

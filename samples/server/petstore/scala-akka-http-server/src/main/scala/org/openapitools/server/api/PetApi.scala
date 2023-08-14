@@ -1,11 +1,11 @@
 package org.openapitools.server.api
 
-import akka.http.scaladsl.server.Directives._
-import akka.http.scaladsl.server.Route
-import akka.http.scaladsl.model.StatusCodes
-import akka.http.scaladsl.marshalling.ToEntityMarshaller
-import akka.http.scaladsl.unmarshalling.FromEntityUnmarshaller
-import akka.http.scaladsl.unmarshalling.FromStringUnmarshaller
+import .http.scaladsl.server.Directives._
+import .http.scaladsl.server.Route
+import .http.scaladsl.model.StatusCodes
+import .http.scaladsl.marshalling.ToEntityMarshaller
+import .http.scaladsl.unmarshalling.FromEntityUnmarshaller
+import .http.scaladsl.unmarshalling.FromStringUnmarshaller
 import org.openapitools.server.AkkaHttpHelper._
 import org.openapitools.server.StringDirectives
 import org.openapitools.server.MultipartDirectives
@@ -15,8 +15,8 @@ import org.openapitools.server.model.ApiResponse
 import java.io.File
 import org.openapitools.server.model.Pet
 import scala.util.Try
-import akka.http.scaladsl.server.MalformedRequestContentRejection
-import akka.http.scaladsl.server.directives.FileInfo
+import .http.scaladsl.server.MalformedRequestContentRejection
+import .http.scaladsl.server.directives.FileInfo
 
 
 class PetApi(

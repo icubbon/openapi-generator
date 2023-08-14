@@ -1429,15 +1429,15 @@ class FakeApi(object):
             _request_auth=_params.get('_request_auth'))
 
     @overload
-    async def fake_return_list_of_objects(self, **kwargs) -> List[List[Tag]]:  # noqa: E501
+    async def fake_return_list_of_objects(self, **kwargs) -> List[List]:  # noqa: E501
         ...
 
     @overload
-    def fake_return_list_of_objects(self, async_req: Optional[bool]=True, **kwargs) -> List[List[Tag]]:  # noqa: E501
+    def fake_return_list_of_objects(self, async_req: Optional[bool]=True, **kwargs) -> List[List]:  # noqa: E501
         ...
 
     @validate_arguments
-    def fake_return_list_of_objects(self, async_req: Optional[bool]=None, **kwargs) -> Union[List[List[Tag]], Awaitable[List[List[Tag]]]]:  # noqa: E501
+    def fake_return_list_of_objects(self, async_req: Optional[bool]=None, **kwargs) -> Union[List[List], Awaitable[List[List]]]:  # noqa: E501
         """test returning list of objects  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1455,7 +1455,7 @@ class FakeApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: List[List[Tag]]
+        :rtype: List[List]
         """
         kwargs['_return_http_data_only'] = True
         if '_preload_content' in kwargs:
@@ -1496,7 +1496,7 @@ class FakeApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: tuple(List[List[Tag]], status_code(int), headers(HTTPHeaderDict))
+        :rtype: tuple(List[List], status_code(int), headers(HTTPHeaderDict))
         """
 
         _params = locals()
@@ -1547,7 +1547,7 @@ class FakeApi(object):
         _auth_settings = []  # noqa: E501
 
         _response_types_map = {
-            '200': "List[List[Tag]]",
+            '200': "List[List]",
         }
 
         return self.api_client.call_api(

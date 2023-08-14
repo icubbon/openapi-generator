@@ -18,16 +18,16 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
 class PropertyNameCollision(BaseModel):
     """
     PropertyNameCollision
     """
-    underscore_type: Optional[StrictStr] = Field(None, alias="_type")
+    type: Optional[StrictStr] = Field(None, alias="_type")
     type: Optional[StrictStr] = None
-    type_with_underscore: Optional[StrictStr] = Field(None, alias="type_")
+    type_: Optional[StrictStr] = None
     additional_properties: Dict[str, Any] = {}
     __properties = ["_type", "type", "type_"]
 
@@ -73,9 +73,9 @@ class PropertyNameCollision(BaseModel):
             return PropertyNameCollision.parse_obj(obj)
 
         _obj = PropertyNameCollision.parse_obj({
-            "underscore_type": obj.get("_type"),
+            "type": obj.get("_type"),
             "type": obj.get("type"),
-            "type_with_underscore": obj.get("type_")
+            "type_": obj.get("type_")
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

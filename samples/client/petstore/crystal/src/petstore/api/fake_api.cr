@@ -18,43 +18,43 @@ module Petstore
       @api_client = api_client
     end
     # parameter name mapping test
-    # @param underscore_type [Int64] _type
-    # @param _type [String] type
-    # @param type_with_underscore [String] type_
-    # @param type_with_dash [String] type-
+    # @param _type [Int64] _type
+    # @param _type2 [String] type
+    # @param type_ [String] type_
+    # @param type_2 [String] type-
     # @param http_debug_option [String] http debug option (to test parameter naming option)
     # @return [nil]
-    def get_parameter_name_mapping(underscore_type : Int64, _type : String, type_with_underscore : String, type_with_dash : String, http_debug_option : String)
-      get_parameter_name_mapping_with_http_info(underscore_type, _type, type_with_underscore, type_with_dash, http_debug_option)
+    def get_parameter_name_mapping(_type : Int64, _type2 : String, type_ : String, type_2 : String, http_debug_option : String)
+      get_parameter_name_mapping_with_http_info(_type, _type2, type_, type_2, http_debug_option)
       nil
     end
 
     # parameter name mapping test
-    # @param underscore_type [Int64] _type
-    # @param _type [String] type
-    # @param type_with_underscore [String] type_
-    # @param type_with_dash [String] type-
+    # @param _type [Int64] _type
+    # @param _type2 [String] type
+    # @param type_ [String] type_
+    # @param type_2 [String] type-
     # @param http_debug_option [String] http debug option (to test parameter naming option)
     # @return [Array<(nil, Integer, Hash)>] nil, response status code and response headers
-    def get_parameter_name_mapping_with_http_info(underscore_type : Int64, _type : String, type_with_underscore : String, type_with_dash : String, http_debug_option : String)
+    def get_parameter_name_mapping_with_http_info(_type : Int64, _type2 : String, type_ : String, type_2 : String, http_debug_option : String)
       if @api_client.config.debugging
         Log.debug {"Calling API: FakeApi.get_parameter_name_mapping ..."}
-      end
-      # verify the required parameter "underscore_type" is set
-      if @api_client.config.client_side_validation && underscore_type.nil?
-        raise ArgumentError.new("Missing the required parameter 'underscore_type' when calling FakeApi.get_parameter_name_mapping")
       end
       # verify the required parameter "_type" is set
       if @api_client.config.client_side_validation && _type.nil?
         raise ArgumentError.new("Missing the required parameter '_type' when calling FakeApi.get_parameter_name_mapping")
       end
-      # verify the required parameter "type_with_underscore" is set
-      if @api_client.config.client_side_validation && type_with_underscore.nil?
-        raise ArgumentError.new("Missing the required parameter 'type_with_underscore' when calling FakeApi.get_parameter_name_mapping")
+      # verify the required parameter "_type2" is set
+      if @api_client.config.client_side_validation && _type2.nil?
+        raise ArgumentError.new("Missing the required parameter '_type2' when calling FakeApi.get_parameter_name_mapping")
       end
-      # verify the required parameter "type_with_dash" is set
-      if @api_client.config.client_side_validation && type_with_dash.nil?
-        raise ArgumentError.new("Missing the required parameter 'type_with_dash' when calling FakeApi.get_parameter_name_mapping")
+      # verify the required parameter "type_" is set
+      if @api_client.config.client_side_validation && type_.nil?
+        raise ArgumentError.new("Missing the required parameter 'type_' when calling FakeApi.get_parameter_name_mapping")
+      end
+      # verify the required parameter "type_2" is set
+      if @api_client.config.client_side_validation && type_2.nil?
+        raise ArgumentError.new("Missing the required parameter 'type_2' when calling FakeApi.get_parameter_name_mapping")
       end
       # verify the required parameter "http_debug_option" is set
       if @api_client.config.client_side_validation && http_debug_option.nil?
@@ -65,14 +65,14 @@ module Petstore
 
       # query parameters
       query_params = Hash(String, String).new
-      query_params["type"] = _type.to_s unless _type.nil?
+      query_params["type"] = _type2.to_s unless _type2.nil?
       query_params["http_debug_option"] = http_debug_option.to_s unless http_debug_option.nil?
 
       # header parameters
       header_params = Hash(String, String).new
-      header_params["_type"] = underscore_type
-      header_params["type_"] = type_with_underscore
-      header_params["type-"] = type_with_dash
+      header_params["_type"] = _type
+      header_params["type_"] = type_
+      header_params["type-"] = type_2
 
       # form parameters
       form_params = Hash(Symbol, (String | ::File)).new

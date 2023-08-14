@@ -674,7 +674,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **fake_return_list_of_objects**
-> List[List[Tag]] fake_return_list_of_objects()
+> List[List] fake_return_list_of_objects()
 
 test returning list of objects
 
@@ -716,7 +716,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-**List[List[Tag]]**
+**List[List]**
 
 ### Authorization
 

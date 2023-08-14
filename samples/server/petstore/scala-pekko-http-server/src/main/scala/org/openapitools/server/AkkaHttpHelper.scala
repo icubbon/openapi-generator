@@ -1,7 +1,7 @@
 package org.openapitools.server
 
-import org.apache.pekko.http.scaladsl.server.Directives._
-import org.apache.pekko.http.scaladsl.server.{PathMatcher, PathMatcher1}
+import .http.scaladsl.server.Directives._
+import .http.scaladsl.server.{PathMatcher, PathMatcher1}
 import scala.util.{Failure, Success, Try}
 import scala.util.control.NoStackTrace
 

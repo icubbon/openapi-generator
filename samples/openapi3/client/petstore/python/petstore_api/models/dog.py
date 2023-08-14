@@ -18,8 +18,8 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
-from pydantic import StrictStr
+from typing import Optional
+from pydantic import BaseModel, StrictStr
 from petstore_api.models.animal import Animal
 
 class Dog(Animal):

@@ -86,15 +86,15 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "http://localhost";
             var apiInstance = new FakeApi(config);
-            var UnderscoreType = 789L;  // long | _type
-            var type = "type_example";  // string | type
-            var TypeWithUnderscore = "TypeWithUnderscore_example";  // string | type_
+            var type = 789L;  // long | _type
+            var type2 = "type_example";  // string | type
+            var type3 = "type_example";  // string | type_
             var httpDebugOption = "httpDebugOption_example";  // string | http debug option (to test parameter naming option)
 
             try
             {
                 // parameter name mapping test
-                Env result = apiInstance.GetParameterNameMapping(UnderscoreType, type, TypeWithUnderscore, httpDebugOption);
+                Environment result = apiInstance.GetParameterNameMapping(type, type2, type3, httpDebugOption);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -122,7 +122,7 @@ Class | Method | HTTP request | Description
 <a id="documentation-for-models"></a>
 ## Documentation for Models
 
- - [Model.Env](docs/Env.md)
+ - [Model.Environment](docs/Environment.md)
  - [Model.PropertyNameMapping](docs/PropertyNameMapping.md)
 
 

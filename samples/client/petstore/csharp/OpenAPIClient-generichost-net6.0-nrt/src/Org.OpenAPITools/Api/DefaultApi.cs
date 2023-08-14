@@ -108,8 +108,8 @@ namespace Org.OpenAPITools.Api
         /// </remarks>
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task&lt;ApiResponse&lt;List&lt;List&lt;RolesReportsHash&gt;&gt;&gt;&gt;</returns>
-        Task<ApiResponse<List<List<RolesReportsHash>>>> RolesReportGetAsync(System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task&lt;ApiResponse&lt;List&lt;List&gt;&gt;&gt;</returns>
+        Task<ApiResponse<List<List>>> RolesReportGetAsync(System.Threading.CancellationToken cancellationToken = default);
 
         /// <summary>
         /// 
@@ -118,8 +118,8 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task&lt;ApiResponse&gt;List&lt;List&lt;RolesReportsHash&gt;&gt;&gt;?&gt;</returns>
-        Task<ApiResponse<List<List<RolesReportsHash>>>?> RolesReportGetOrDefaultAsync(System.Threading.CancellationToken cancellationToken = default);
+        /// <returns>Task&lt;ApiResponse&gt;List&lt;List&gt;&gt;?&gt;</returns>
+        Task<ApiResponse<List<List>>?> RolesReportGetOrDefaultAsync(System.Threading.CancellationToken cancellationToken = default);
     }
 
     /// <summary>
@@ -191,16 +191,16 @@ namespace Org.OpenAPITools.Api
         /// <summary>
         /// The event raised after the server response
         /// </summary>
-        public event EventHandler<ApiResponseEventArgs<List<List<RolesReportsHash>>>>? OnRolesReportGet;
+        public event EventHandler<ApiResponseEventArgs<List<List>>>? OnRolesReportGet;
 
         /// <summary>
         /// The event raised after an error querying the server
         /// </summary>
         public event EventHandler<ExceptionEventArgs>? OnErrorRolesReportGet;
 
-        internal void ExecuteOnRolesReportGet(ApiResponse<List<List<RolesReportsHash>>> apiResponse)
+        internal void ExecuteOnRolesReportGet(ApiResponse<List<List>> apiResponse)
         {
-            OnRolesReportGet?.Invoke(this, new ApiResponseEventArgs<List<List<RolesReportsHash>>>(apiResponse));
+            OnRolesReportGet?.Invoke(this, new ApiResponseEventArgs<List<List>>(apiResponse));
         }
 
         internal void ExecuteOnErrorRolesReportGet(Exception exception)
@@ -660,7 +660,7 @@ namespace Org.OpenAPITools.Api
         /// Processes the server response
         /// </summary>
         /// <param name="apiResponseLocalVar"></param>
-        private void AfterRolesReportGetDefaultImplementation(ApiResponse<List<List<RolesReportsHash>>> apiResponseLocalVar)
+        private void AfterRolesReportGetDefaultImplementation(ApiResponse<List<List>> apiResponseLocalVar)
         {
             bool suppressDefaultLog = false;
             AfterRolesReportGet(ref suppressDefaultLog, apiResponseLocalVar);
@@ -673,7 +673,7 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="suppressDefaultLog"></param>
         /// <param name="apiResponseLocalVar"></param>
-        partial void AfterRolesReportGet(ref bool suppressDefaultLog, ApiResponse<List<List<RolesReportsHash>>> apiResponseLocalVar);
+        partial void AfterRolesReportGet(ref bool suppressDefaultLog, ApiResponse<List<List>> apiResponseLocalVar);
 
         /// <summary>
         /// Logs exceptions that occur while retrieving the server response
@@ -703,7 +703,7 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ApiResponse{T}"/>&gt; where T : <see cref="List{TValue}"/></returns>
-        public async Task<ApiResponse<List<List<RolesReportsHash>>>?> RolesReportGetOrDefaultAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<List<List>>?> RolesReportGetOrDefaultAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             try
             {
@@ -721,7 +721,7 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns><see cref="Task"/>&lt;<see cref="ApiResponse{T}"/>&gt; where T : <see cref="List{TValue}"/></returns>
-        public async Task<ApiResponse<List<List<RolesReportsHash>>>> RolesReportGetAsync(System.Threading.CancellationToken cancellationToken = default)
+        public async Task<ApiResponse<List<List>>> RolesReportGetAsync(System.Threading.CancellationToken cancellationToken = default)
         {
             UriBuilder uriBuilderLocalVar = new UriBuilder();
 
@@ -753,7 +753,7 @@ namespace Org.OpenAPITools.Api
                     {
                         string responseContentLocalVar = await httpResponseMessageLocalVar.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        ApiResponse<List<List<RolesReportsHash>>> apiResponseLocalVar = new ApiResponse<List<List<RolesReportsHash>>>(httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/roles/report", requestedAtLocalVar, _jsonSerializerOptions);
+                        ApiResponse<List<List>> apiResponseLocalVar = new ApiResponse<List<List>>(httpRequestMessageLocalVar, httpResponseMessageLocalVar, responseContentLocalVar, "/roles/report", requestedAtLocalVar, _jsonSerializerOptions);
 
                         AfterRolesReportGetDefaultImplementation(apiResponseLocalVar);
 

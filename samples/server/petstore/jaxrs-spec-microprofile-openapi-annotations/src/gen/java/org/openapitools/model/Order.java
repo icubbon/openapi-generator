@@ -1,10 +1,13 @@
 package org.openapitools.model;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.time.LocalDateTime;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
+import io.swagger.annotations.*;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -91,6 +94,7 @@ public class Order  implements Serializable {
   }
 
   
+  @ApiModelProperty(value = "")
   @org.eclipse.microprofile.openapi.annotations.media.Schema(description = "")
   @JsonProperty("id")
   public Long getId() {
@@ -110,6 +114,7 @@ public class Order  implements Serializable {
   }
 
   
+  @ApiModelProperty(value = "")
   @org.eclipse.microprofile.openapi.annotations.media.Schema(description = "")
   @JsonProperty("petId")
   public Long getPetId() {
@@ -129,6 +134,7 @@ public class Order  implements Serializable {
   }
 
   
+  @ApiModelProperty(value = "")
   @org.eclipse.microprofile.openapi.annotations.media.Schema(description = "")
   @JsonProperty("quantity")
   public Integer getQuantity() {
@@ -148,6 +154,7 @@ public class Order  implements Serializable {
   }
 
   
+  @ApiModelProperty(value = "")
   @org.eclipse.microprofile.openapi.annotations.media.Schema(description = "")
   @JsonProperty("shipDate")
   public LocalDateTime getShipDate() {
@@ -168,6 +175,7 @@ public class Order  implements Serializable {
   }
 
   
+  @ApiModelProperty(value = "Order Status")
   @org.eclipse.microprofile.openapi.annotations.media.Schema(description = "Order Status")
   @JsonProperty("status")
   public StatusEnum getStatus() {
@@ -187,6 +195,7 @@ public class Order  implements Serializable {
   }
 
   
+  @ApiModelProperty(value = "")
   @org.eclipse.microprofile.openapi.annotations.media.Schema(description = "")
   @JsonProperty("complete")
   public Boolean getComplete() {

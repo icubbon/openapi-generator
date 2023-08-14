@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a id="getParameterNameMapping"></a>
 # **getParameterNameMapping**
-> Environment getParameterNameMapping(underscoreType, type, typeWithUnderscore, httpDebugOption)
+> Environment getParameterNameMapping(type, type2, type3, httpDebugOption)
 
 parameter name mapping test
 
@@ -20,12 +20,12 @@ parameter name mapping test
 //import org.openapitools.client.models.*
 
 val apiInstance = FakeApi()
-val underscoreType : kotlin.Long = 789 // kotlin.Long | _type
-val type : kotlin.String = type_example // kotlin.String | type
-val typeWithUnderscore : kotlin.String = typeWithUnderscore_example // kotlin.String | type_
+val type : kotlin.Long = 789 // kotlin.Long | _type
+val type2 : kotlin.String = type_example // kotlin.String | type
+val type3 : kotlin.String = type_example // kotlin.String | type_
 val httpDebugOption : kotlin.String = httpDebugOption_example // kotlin.String | http debug option (to test parameter naming option)
 try {
-    val result : Environment = apiInstance.getParameterNameMapping(underscoreType, type, typeWithUnderscore, httpDebugOption)
+    val result : Environment = apiInstance.getParameterNameMapping(type, type2, type3, httpDebugOption)
     println(result)
 } catch (e: ClientException) {
     println("4xx response calling FakeApi#getParameterNameMapping")
@@ -40,9 +40,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underscoreType** | **kotlin.Long**| _type |
- **type** | **kotlin.String**| type |
- **typeWithUnderscore** | **kotlin.String**| type_ |
+ **type** | **kotlin.Long**| _type |
+ **type2** | **kotlin.String**| type |
+ **type3** | **kotlin.String**| type_ |
  **httpDebugOption** | **kotlin.String**| http debug option (to test parameter naming option) |
 
 ### Return type

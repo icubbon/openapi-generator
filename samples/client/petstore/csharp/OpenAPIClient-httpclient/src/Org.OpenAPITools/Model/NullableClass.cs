@@ -62,7 +62,6 @@ namespace Org.OpenAPITools.Model
             this.ObjectNullableProp = objectNullableProp;
             this.ObjectAndItemsNullableProp = objectAndItemsNullableProp;
             this.ObjectItemsNullable = objectItemsNullable;
-            this.AdditionalProperties = new Dictionary<string, object>();
         }
 
         /// <summary>
@@ -139,12 +138,6 @@ namespace Org.OpenAPITools.Model
         public Dictionary<string, Object> ObjectItemsNullable { get; set; }
 
         /// <summary>
-        /// Gets or Sets additional properties
-        /// </summary>
-        [JsonExtensionData]
-        public IDictionary<string, object> AdditionalProperties { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -165,7 +158,6 @@ namespace Org.OpenAPITools.Model
             sb.Append("  ObjectNullableProp: ").Append(ObjectNullableProp).Append("\n");
             sb.Append("  ObjectAndItemsNullableProp: ").Append(ObjectAndItemsNullableProp).Append("\n");
             sb.Append("  ObjectItemsNullable: ").Append(ObjectItemsNullable).Append("\n");
-            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -255,10 +247,6 @@ namespace Org.OpenAPITools.Model
                 if (this.ObjectItemsNullable != null)
                 {
                     hashCode = (hashCode * 59) + this.ObjectItemsNullable.GetHashCode();
-                }
-                if (this.AdditionalProperties != null)
-                {
-                    hashCode = (hashCode * 59) + this.AdditionalProperties.GetHashCode();
                 }
                 return hashCode;
             }

@@ -183,47 +183,47 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
      */
     fun testRequestConfig(pi0: kotlin.Int, pi1: kotlin.Int, pn0: java.math.BigDecimal, pn1: java.math.BigDecimal, qi0: kotlin.Int?, qi1: kotlin.Int, qi2: kotlin.Int?, qi3: kotlin.Int, qn0: java.math.BigDecimal?, qn1: java.math.BigDecimal, qn2: java.math.BigDecimal?, qn3: java.math.BigDecimal, hi0: kotlin.Int?, hi1: kotlin.Int, hi2: kotlin.Int?, hi3: kotlin.Int, hn0: java.math.BigDecimal?, hn1: java.math.BigDecimal, hn2: java.math.BigDecimal?, hn3: java.math.BigDecimal, fi0: kotlin.Int?, fi1: kotlin.Int, fi2: kotlin.Int?, fi3: kotlin.Int, fn0: java.math.BigDecimal?, fn1: java.math.BigDecimal, fn2: java.math.BigDecimal?, fn3: java.math.BigDecimal, fn4: kotlin.collections.List<kotlin.String>) : RequestConfig<Map<String, PartConfig<*>>> {
         val localVariableBody = mapOf(
-            "fi0" to PartConfig(body = fi0, headers = mutableMapOf()),
-            "fi1" to PartConfig(body = fi1, headers = mutableMapOf()),
-            "fi2" to PartConfig(body = fi2, headers = mutableMapOf()),
-            "fi3" to PartConfig(body = fi3, headers = mutableMapOf()),
-            "fn0" to PartConfig(body = fn0, headers = mutableMapOf()),
-            "fn1" to PartConfig(body = fn1, headers = mutableMapOf()),
-            "fn2" to PartConfig(body = fn2, headers = mutableMapOf()),
-            "fn3" to PartConfig(body = fn3, headers = mutableMapOf()),
-            "fn4" to PartConfig(body = fn4, headers = mutableMapOf()),)
+            "" to PartConfig(body = fi0, headers = mutableMapOf()),
+            "" to PartConfig(body = fi1, headers = mutableMapOf()),
+            "" to PartConfig(body = fi2, headers = mutableMapOf()),
+            "" to PartConfig(body = fi3, headers = mutableMapOf()),
+            "" to PartConfig(body = fn0, headers = mutableMapOf()),
+            "" to PartConfig(body = fn1, headers = mutableMapOf()),
+            "" to PartConfig(body = fn2, headers = mutableMapOf()),
+            "" to PartConfig(body = fn3, headers = mutableMapOf()),
+            "" to PartConfig(body = fn4, headers = mutableMapOf()),)
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (qi0 != null) {
-                    put("qi0", listOf(qi0.toString()))
+                    put("", listOf(qi0.toString()))
                 }
-                put("qi1", listOf(qi1.toString()))
+                put("", listOf(qi1.toString()))
                 if (qi2 != null) {
-                    put("qi2", listOf(qi2.toString()))
+                    put("", listOf(qi2.toString()))
                 }
-                put("qi3", listOf(qi3.toString()))
+                put("", listOf(qi3.toString()))
                 if (qn0 != null) {
-                    put("qn0", listOf(qn0.toString()))
+                    put("", listOf(qn0.toString()))
                 }
-                put("qn1", listOf(qn1.toString()))
+                put("", listOf(qn1.toString()))
                 if (qn2 != null) {
-                    put("qn2", listOf(qn2.toString()))
+                    put("", listOf(qn2.toString()))
                 }
-                put("qn3", listOf(qn3.toString()))
+                put("", listOf(qn3.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf("Content-Type" to "multipart/form-data")
-        hi0?.apply { localVariableHeaders["hi0"] = this.toString() }
-        hi1.apply { localVariableHeaders["hi1"] = this.toString() }
-        hi2?.apply { localVariableHeaders["hi2"] = this.toString() }
-        hi3.apply { localVariableHeaders["hi3"] = this.toString() }
-        hn0?.apply { localVariableHeaders["hn0"] = this.toString() }
-        hn1.apply { localVariableHeaders["hn1"] = this.toString() }
-        hn2?.apply { localVariableHeaders["hn2"] = this.toString() }
-        hn3.apply { localVariableHeaders["hn3"] = this.toString() }
+        hi0?.apply { localVariableHeaders[""] = this.toString() }
+        hi1.apply { localVariableHeaders[""] = this.toString() }
+        hi2?.apply { localVariableHeaders[""] = this.toString() }
+        hi3.apply { localVariableHeaders[""] = this.toString() }
+        hn0?.apply { localVariableHeaders[""] = this.toString() }
+        hn1.apply { localVariableHeaders[""] = this.toString() }
+        hn2?.apply { localVariableHeaders[""] = this.toString() }
+        hn3.apply { localVariableHeaders[""] = this.toString() }
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/test".replace("{"+"pi0"+"}", encodeURIComponent(pi0.toString())).replace("{"+"pi1"+"}", encodeURIComponent(pi1.toString())).replace("{"+"pn0"+"}", encodeURIComponent(pn0.toString())).replace("{"+"pn1"+"}", encodeURIComponent(pn1.toString())),
+            path = "/test".replace("{"+""+"}", encodeURIComponent(pi0.toString())).replace("{"+""+"}", encodeURIComponent(pi1.toString())).replace("{"+""+"}", encodeURIComponent(pn0.toString())).replace("{"+""+"}", encodeURIComponent(pn1.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

@@ -30,19 +30,19 @@ class UserApi {
     }
 
     @DELETE
-    suspend fun deleteUser(@PathParam("username") username: kotlin.String): Response {
+    suspend fun deleteUser(@PathParam("") username: kotlin.String): Response {
         return Response.ok().entity("magic!").build();
     }
 
     @GET
     @Produces("application/xml", "application/json")
-    suspend fun getUserByName(@PathParam("username") username: kotlin.String): Response {
+    suspend fun getUserByName(@PathParam("") username: kotlin.String): Response {
         return Response.ok().entity("magic!").build();
     }
 
     @GET
     @Produces("application/xml", "application/json")
-    suspend fun loginUser(@QueryParam("username")   username: kotlin.String,@QueryParam("password")   password: kotlin.String): Response {
+    suspend fun loginUser(@QueryParam("")   username: kotlin.String,@QueryParam("")   password: kotlin.String): Response {
         return Response.ok().entity("magic!").build();
     }
 
@@ -52,7 +52,7 @@ class UserApi {
     }
 
     @PUT
-    suspend fun updateUser(@PathParam("username") username: kotlin.String, body: User): Response {
+    suspend fun updateUser(@PathParam("") username: kotlin.String, body: User): Response {
         return Response.ok().entity("magic!").build();
     }
 }

@@ -73,6 +73,4 @@ class CircularReferenceModel(BaseModel):
         })
         return _obj
 
-from petstore_api.models.first_ref import FirstRef
-CircularReferenceModel.update_forward_refs()
 

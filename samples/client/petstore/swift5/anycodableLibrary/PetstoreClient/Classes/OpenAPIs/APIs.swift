@@ -5,9 +5,6 @@
 //
 
 import Foundation
-#if canImport(FoundationNetworking)
-import FoundationNetworking
-#endif
 open class PetstoreClientAPI {
     public static var basePath = "http://localhost"
     public static var customHeaders: [String: String] = [:]

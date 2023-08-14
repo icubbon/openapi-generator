@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, StrictInt
 
 class SelfReferenceModel(BaseModel):
@@ -85,6 +85,4 @@ class SelfReferenceModel(BaseModel):
 
         return _obj
 
-from petstore_api.models.dummy_model import DummyModel
-SelfReferenceModel.update_forward_refs()
 

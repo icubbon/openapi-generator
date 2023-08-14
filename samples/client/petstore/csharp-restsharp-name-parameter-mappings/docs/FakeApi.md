@@ -8,7 +8,7 @@ All URIs are relative to *http://localhost*
 
 <a id="getparameternamemapping"></a>
 # **GetParameterNameMapping**
-> Env GetParameterNameMapping (long UnderscoreType, string type, string TypeWithUnderscore, string httpDebugOption)
+> Environment GetParameterNameMapping (long type, string type2, string type3, string httpDebugOption)
 
 parameter name mapping test
 
@@ -29,15 +29,15 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "http://localhost";
             var apiInstance = new FakeApi(config);
-            var UnderscoreType = 789L;  // long | _type
-            var type = "type_example";  // string | type
-            var TypeWithUnderscore = "TypeWithUnderscore_example";  // string | type_
+            var type = 789L;  // long | _type
+            var type2 = "type_example";  // string | type
+            var type3 = "type_example";  // string | type_
             var httpDebugOption = "httpDebugOption_example";  // string | http debug option (to test parameter naming option)
 
             try
             {
                 // parameter name mapping test
-                Env result = apiInstance.GetParameterNameMapping(UnderscoreType, type, TypeWithUnderscore, httpDebugOption);
+                Environment result = apiInstance.GetParameterNameMapping(type, type2, type3, httpDebugOption);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -58,7 +58,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // parameter name mapping test
-    ApiResponse<Env> response = apiInstance.GetParameterNameMappingWithHttpInfo(UnderscoreType, type, TypeWithUnderscore, httpDebugOption);
+    ApiResponse<Environment> response = apiInstance.GetParameterNameMappingWithHttpInfo(type, type2, type3, httpDebugOption);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -75,14 +75,14 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **UnderscoreType** | **long** | _type |  |
-| **type** | **string** | type |  |
-| **TypeWithUnderscore** | **string** | type_ |  |
+| **type** | **long** | _type |  |
+| **type2** | **string** | type |  |
+| **type3** | **string** | type_ |  |
 | **httpDebugOption** | **string** | http debug option (to test parameter naming option) |  |
 
 ### Return type
 
-[**Env**](Env.md)
+[**Environment**](Environment.md)
 
 ### Authorization
 

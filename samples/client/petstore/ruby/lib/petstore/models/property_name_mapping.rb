@@ -17,19 +17,19 @@ module Petstore
   class PropertyNameMapping
     attr_accessor :http_debug_operation
 
-    attr_accessor :underscore_type
+    attr_accessor :_type
 
     attr_accessor :type
 
-    attr_accessor :type_with_underscore
+    attr_accessor :type_
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'http_debug_operation' => :'http_debug_operation',
-        :'underscore_type' => :'_type',
+        :'_type' => :'_type',
         :'type' => :'type',
-        :'type_with_underscore' => :'type_'
+        :'type_' => :'type_'
       }
     end
 
@@ -42,9 +42,9 @@ module Petstore
     def self.openapi_types
       {
         :'http_debug_operation' => :'String',
-        :'underscore_type' => :'String',
+        :'_type' => :'String',
         :'type' => :'String',
-        :'type_with_underscore' => :'String'
+        :'type_' => :'String'
       }
     end
 
@@ -73,16 +73,16 @@ module Petstore
         self.http_debug_operation = attributes[:'http_debug_operation']
       end
 
-      if attributes.key?(:'underscore_type')
-        self.underscore_type = attributes[:'underscore_type']
+      if attributes.key?(:'_type')
+        self._type = attributes[:'_type']
       end
 
       if attributes.key?(:'type')
         self.type = attributes[:'type']
       end
 
-      if attributes.key?(:'type_with_underscore')
-        self.type_with_underscore = attributes[:'type_with_underscore']
+      if attributes.key?(:'type_')
+        self.type_ = attributes[:'type_']
       end
     end
 
@@ -107,9 +107,9 @@ module Petstore
       return true if self.equal?(o)
       self.class == o.class &&
           http_debug_operation == o.http_debug_operation &&
-          underscore_type == o.underscore_type &&
+          _type == o._type &&
           type == o.type &&
-          type_with_underscore == o.type_with_underscore
+          type_ == o.type_
     end
 
     # @see the `==` method
@@ -121,7 +121,7 @@ module Petstore
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [http_debug_operation, underscore_type, type, type_with_underscore].hash
+      [http_debug_operation, _type, type, type_].hash
     end
 
     # Builds the object from hash

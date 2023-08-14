@@ -1,10 +1,13 @@
 package org.openapitools.model;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
 
+import io.swagger.annotations.*;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -14,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 /**
  * Model for testing reserved words
  **/
-
+@ApiModel(description = "Model for testing reserved words")
 @org.eclipse.microprofile.openapi.annotations.media.Schema(description="Model for testing reserved words")
 @JsonTypeName("Return")
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaJAXRSSpecServerCodegen")
@@ -36,6 +39,7 @@ public class ModelReturn  implements Serializable {
   }
 
   
+  @ApiModelProperty(value = "")
   @org.eclipse.microprofile.openapi.annotations.media.Schema(description = "")
   @JsonProperty("return")
   public Integer getReturn() {

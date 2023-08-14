@@ -28,17 +28,17 @@ interface UserApi {
 
     @DELETE
     @Path("/user/{username}")
-    fun deleteUser(@PathParam("username") username: kotlin.String): io.smallrye.mutiny.Uni<Response>
+    fun deleteUser(@PathParam("") username: kotlin.String): io.smallrye.mutiny.Uni<Response>
 
     @GET
     @Path("/user/{username}")
     @Produces("application/xml", "application/json")
-    fun getUserByName(@PathParam("username") username: kotlin.String): io.smallrye.mutiny.Uni<Response>
+    fun getUserByName(@PathParam("") username: kotlin.String): io.smallrye.mutiny.Uni<Response>
 
     @GET
     @Path("/user/login")
     @Produces("application/xml", "application/json")
-    fun loginUser(@QueryParam("username")   username: kotlin.String,@QueryParam("password")   password: kotlin.String): io.smallrye.mutiny.Uni<Response>
+    fun loginUser(@QueryParam("")   username: kotlin.String,@QueryParam("")   password: kotlin.String): io.smallrye.mutiny.Uni<Response>
 
     @GET
     @Path("/user/logout")
@@ -46,5 +46,5 @@ interface UserApi {
 
     @PUT
     @Path("/user/{username}")
-    fun updateUser(@PathParam("username") username: kotlin.String, body: User): io.smallrye.mutiny.Uni<Response>
+    fun updateUser(@PathParam("") username: kotlin.String, body: User): io.smallrye.mutiny.Uni<Response>
 }

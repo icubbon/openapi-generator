@@ -26,7 +26,7 @@ Method | HTTP request | Description
 
 ## fakeHealthGet
 
-> HealthCheckStatus fakeHealthGet()
+> HealthCheckResult fakeHealthGet()
 
 Health check endpoint
 
@@ -51,7 +51,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**HealthCheckStatus**](HealthCheckStatus.md)
+[**HealthCheckResult**](HealthCheckResult.md)
 
 ### Authorization
 
@@ -78,7 +78,7 @@ let defaultClient = OpenApiPetstore.ApiClient.instance;
 let apiInstance = new OpenApiPetstore.FakeApi();
 let pet = new OpenApiPetstore.Pet(); // Pet | Pet object that needs to be added to the store
 let opts = {
-  'queryOne': "queryOne_example", // String | query parameter
+  'query1': "query1_example", // String | query parameter
   'header1': "header1_example" // String | header parameter
 };
 apiInstance.fakeHttpSignatureTest(pet, opts, (error, data, response) => {
@@ -96,7 +96,7 @@ apiInstance.fakeHttpSignatureTest(pet, opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pet** | [**Pet**](Pet.md)| Pet object that needs to be added to the store | 
- **queryOne** | **String**| query parameter | [optional] 
+ **query1** | **String**| query parameter | [optional] 
  **header1** | **String**| header parameter | [optional] 
 
 ### Return type

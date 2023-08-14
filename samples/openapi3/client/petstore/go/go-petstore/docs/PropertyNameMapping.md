@@ -4,10 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**HTTPDebugOperation** | Pointer to **string** |  | [optional] 
-**UnderscoreType** | Pointer to **string** |  | [optional] 
+**HttpDebugOperation** | Pointer to **string** |  | [optional] 
 **Type** | Pointer to **string** |  | [optional] 
-**TypeWithUnderscore** | Pointer to **string** |  | [optional] 
+**Type** | Pointer to **string** |  | [optional] 
+**Type** | Pointer to **string** |  | [optional] 
 
 ## Methods
 
@@ -28,55 +28,30 @@ NewPropertyNameMappingWithDefaults instantiates a new PropertyNameMapping object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetHTTPDebugOperation
+### GetHttpDebugOperation
 
-`func (o *PropertyNameMapping) GetHTTPDebugOperation() string`
+`func (o *PropertyNameMapping) GetHttpDebugOperation() string`
 
-GetHTTPDebugOperation returns the HTTPDebugOperation field if non-nil, zero value otherwise.
+GetHttpDebugOperation returns the HttpDebugOperation field if non-nil, zero value otherwise.
 
-### GetHTTPDebugOperationOk
+### GetHttpDebugOperationOk
 
-`func (o *PropertyNameMapping) GetHTTPDebugOperationOk() (*string, bool)`
+`func (o *PropertyNameMapping) GetHttpDebugOperationOk() (*string, bool)`
 
-GetHTTPDebugOperationOk returns a tuple with the HTTPDebugOperation field if it's non-nil, zero value otherwise
+GetHttpDebugOperationOk returns a tuple with the HttpDebugOperation field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetHTTPDebugOperation
+### SetHttpDebugOperation
 
-`func (o *PropertyNameMapping) SetHTTPDebugOperation(v string)`
+`func (o *PropertyNameMapping) SetHttpDebugOperation(v string)`
 
-SetHTTPDebugOperation sets HTTPDebugOperation field to given value.
+SetHttpDebugOperation sets HttpDebugOperation field to given value.
 
-### HasHTTPDebugOperation
+### HasHttpDebugOperation
 
-`func (o *PropertyNameMapping) HasHTTPDebugOperation() bool`
+`func (o *PropertyNameMapping) HasHttpDebugOperation() bool`
 
-HasHTTPDebugOperation returns a boolean if a field has been set.
-
-### GetUnderscoreType
-
-`func (o *PropertyNameMapping) GetUnderscoreType() string`
-
-GetUnderscoreType returns the UnderscoreType field if non-nil, zero value otherwise.
-
-### GetUnderscoreTypeOk
-
-`func (o *PropertyNameMapping) GetUnderscoreTypeOk() (*string, bool)`
-
-GetUnderscoreTypeOk returns a tuple with the UnderscoreType field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetUnderscoreType
-
-`func (o *PropertyNameMapping) SetUnderscoreType(v string)`
-
-SetUnderscoreType sets UnderscoreType field to given value.
-
-### HasUnderscoreType
-
-`func (o *PropertyNameMapping) HasUnderscoreType() bool`
-
-HasUnderscoreType returns a boolean if a field has been set.
+HasHttpDebugOperation returns a boolean if a field has been set.
 
 ### GetType
 
@@ -103,30 +78,55 @@ SetType sets Type field to given value.
 
 HasType returns a boolean if a field has been set.
 
-### GetTypeWithUnderscore
+### GetType
 
-`func (o *PropertyNameMapping) GetTypeWithUnderscore() string`
+`func (o *PropertyNameMapping) GetType() string`
 
-GetTypeWithUnderscore returns the TypeWithUnderscore field if non-nil, zero value otherwise.
+GetType returns the Type field if non-nil, zero value otherwise.
 
-### GetTypeWithUnderscoreOk
+### GetTypeOk
 
-`func (o *PropertyNameMapping) GetTypeWithUnderscoreOk() (*string, bool)`
+`func (o *PropertyNameMapping) GetTypeOk() (*string, bool)`
 
-GetTypeWithUnderscoreOk returns a tuple with the TypeWithUnderscore field if it's non-nil, zero value otherwise
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetTypeWithUnderscore
+### SetType
 
-`func (o *PropertyNameMapping) SetTypeWithUnderscore(v string)`
+`func (o *PropertyNameMapping) SetType(v string)`
 
-SetTypeWithUnderscore sets TypeWithUnderscore field to given value.
+SetType sets Type field to given value.
 
-### HasTypeWithUnderscore
+### HasType
 
-`func (o *PropertyNameMapping) HasTypeWithUnderscore() bool`
+`func (o *PropertyNameMapping) HasType() bool`
 
-HasTypeWithUnderscore returns a boolean if a field has been set.
+HasType returns a boolean if a field has been set.
+
+### GetType
+
+`func (o *PropertyNameMapping) GetType() string`
+
+GetType returns the Type field if non-nil, zero value otherwise.
+
+### GetTypeOk
+
+`func (o *PropertyNameMapping) GetTypeOk() (*string, bool)`
+
+GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetType
+
+`func (o *PropertyNameMapping) SetType(v string)`
+
+SetType sets Type field to given value.
+
+### HasType
+
+`func (o *PropertyNameMapping) HasType() bool`
+
+HasType returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

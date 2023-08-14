@@ -1,11 +1,11 @@
 package org.openapitools.server.api
 
-import org.apache.pekko.http.scaladsl.server.Directives._
-import org.apache.pekko.http.scaladsl.server.Route
-import org.apache.pekko.http.scaladsl.model.StatusCodes
-import org.apache.pekko.http.scaladsl.marshalling.ToEntityMarshaller
-import org.apache.pekko.http.scaladsl.unmarshalling.FromEntityUnmarshaller
-import org.apache.pekko.http.scaladsl.unmarshalling.FromStringUnmarshaller
+import .http.scaladsl.server.Directives._
+import .http.scaladsl.server.Route
+import .http.scaladsl.model.StatusCodes
+import .http.scaladsl.marshalling.ToEntityMarshaller
+import .http.scaladsl.unmarshalling.FromEntityUnmarshaller
+import .http.scaladsl.unmarshalling.FromStringUnmarshaller
 import org.openapitools.server.AkkaHttpHelper._
 import org.openapitools.server.StringDirectives
 import org.openapitools.server.MultipartDirectives
@@ -15,8 +15,8 @@ import org.openapitools.server.model.ApiResponse
 import java.io.File
 import org.openapitools.server.model.Pet
 import scala.util.Try
-import org.apache.pekko.http.scaladsl.server.MalformedRequestContentRejection
-import org.apache.pekko.http.scaladsl.server.directives.FileInfo
+import .http.scaladsl.server.MalformedRequestContentRejection
+import .http.scaladsl.server.directives.FileInfo
 
 
 class PetApi(

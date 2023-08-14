@@ -4,9 +4,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**underscore_type** | **str** |  | [optional] 
 **type** | **str** |  | [optional] 
-**type_with_underscore** | **str** |  | [optional] 
+**type** | **str** |  | [optional] 
+**type_** | **str** |  | [optional] 
 
 ## Example
 

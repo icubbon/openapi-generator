@@ -126,22 +126,22 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (queryDefault != null) {
-                    put("query_default", listOf(queryDefault.toString()))
+                    put("", listOf(queryDefault.toString()))
                 }
                 if (queryNullable != null) {
-                    put("query_nullable", listOf(queryNullable.toString()))
+                    put("", listOf(queryNullable.toString()))
                 }
                 if (dollarQueryDollarDollarSign != null) {
-                    put("\$query-\$dollar-sign", listOf(dollarQueryDollarDollarSign.toString()))
+                    put("", listOf(dollarQueryDollarDollarSign.toString()))
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        headerDefault?.apply { localVariableHeaders["header_default"] = this.toString() }
-        headerNullable?.apply { localVariableHeaders["header_nullable"] = this.toString() }
+        headerDefault?.apply { localVariableHeaders[""] = this.toString() }
+        headerNullable?.apply { localVariableHeaders[""] = this.toString() }
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/test/parameters/{path_default}/{path_nullable}".replace("{"+"path_default"+"}", encodeURIComponent(pathDefault.toString())).replace("{"+"path_nullable"+"}", encodeURIComponent(pathNullable.toString())),
+            path = "/test/parameters/{path_default}/{path_nullable}".replace("{"+""+"}", encodeURIComponent(pathDefault.toString())).replace("{"+""+"}", encodeURIComponent(pathNullable.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

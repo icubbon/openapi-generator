@@ -3,22 +3,22 @@ package org.openapitools.server
 import java.io.File
 import java.nio.file.Files
 
-import akka.annotation.ApiMayChange
-import akka.http.scaladsl.model.Multipart.FormData
-import akka.http.scaladsl.model.{ContentType, HttpEntity, Multipart}
-import akka.http.scaladsl.server.Directive1
-import akka.http.scaladsl.server.directives._
-import akka.stream.Materializer
-import akka.stream.scaladsl._
+import .annotation.ApiMayChange
+import .http.scaladsl.model.Multipart.FormData
+import .http.scaladsl.model.{ContentType, HttpEntity, Multipart}
+import .http.scaladsl.server.Directive1
+import .http.scaladsl.server.directives._
+import .stream.Materializer
+import .stream.scaladsl._
 
 import scala.collection.immutable
 import scala.concurrent.{ExecutionContextExecutor, Future}
 
 trait MultipartDirectives {
 
-  import akka.http.scaladsl.server.directives.BasicDirectives._
-  import akka.http.scaladsl.server.directives.FutureDirectives._
-  import akka.http.scaladsl.server.directives.MarshallingDirectives._
+  import .http.scaladsl.server.directives.BasicDirectives._
+  import .http.scaladsl.server.directives.FutureDirectives._
+  import .http.scaladsl.server.directives.MarshallingDirectives._
 
   @ApiMayChange
   def formAndFiles(fileFields: FileField*): Directive1[PartsAndFiles] =

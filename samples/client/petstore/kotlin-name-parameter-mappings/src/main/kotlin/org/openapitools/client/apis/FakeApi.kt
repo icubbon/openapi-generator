@@ -48,9 +48,9 @@ class FakeApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * parameter name mapping test
      * 
-     * @param underscoreType _type
-     * @param type type
-     * @param typeWithUnderscore type_
+     * @param type _type
+     * @param type2 type
+     * @param type3 type_
      * @param httpDebugOption http debug option (to test parameter naming option)
      * @return Environment
      * @throws IllegalStateException If the request is not correctly configured
@@ -61,8 +61,8 @@ class FakeApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class, UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getParameterNameMapping(underscoreType: kotlin.Long, type: kotlin.String, typeWithUnderscore: kotlin.String, httpDebugOption: kotlin.String) : Environment {
-        val localVarResponse = getParameterNameMappingWithHttpInfo(underscoreType = underscoreType, type = type, typeWithUnderscore = typeWithUnderscore, httpDebugOption = httpDebugOption)
+    fun getParameterNameMapping(type: kotlin.Long, type2: kotlin.String, type3: kotlin.String, httpDebugOption: kotlin.String) : Environment {
+        val localVarResponse = getParameterNameMappingWithHttpInfo(type = type, type2 = type2, type3 = type3, httpDebugOption = httpDebugOption)
 
         return when (localVarResponse.responseType) {
             ResponseType.Success -> (localVarResponse as Success<*>).data as Environment
@@ -82,9 +82,9 @@ class FakeApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * parameter name mapping test
      * 
-     * @param underscoreType _type
-     * @param type type
-     * @param typeWithUnderscore type_
+     * @param type _type
+     * @param type2 type
+     * @param type3 type_
      * @param httpDebugOption http debug option (to test parameter naming option)
      * @return ApiResponse<Environment?>
      * @throws IllegalStateException If the request is not correctly configured
@@ -92,8 +92,8 @@ class FakeApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(IllegalStateException::class, IOException::class)
-    fun getParameterNameMappingWithHttpInfo(underscoreType: kotlin.Long, type: kotlin.String, typeWithUnderscore: kotlin.String, httpDebugOption: kotlin.String) : ApiResponse<Environment?> {
-        val localVariableConfig = getParameterNameMappingRequestConfig(underscoreType = underscoreType, type = type, typeWithUnderscore = typeWithUnderscore, httpDebugOption = httpDebugOption)
+    fun getParameterNameMappingWithHttpInfo(type: kotlin.Long, type2: kotlin.String, type3: kotlin.String, httpDebugOption: kotlin.String) : ApiResponse<Environment?> {
+        val localVariableConfig = getParameterNameMappingRequestConfig(type = type, type2 = type2, type3 = type3, httpDebugOption = httpDebugOption)
 
         return request<Unit, Environment>(
             localVariableConfig
@@ -103,22 +103,22 @@ class FakeApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
     /**
      * To obtain the request config of the operation getParameterNameMapping
      *
-     * @param underscoreType _type
-     * @param type type
-     * @param typeWithUnderscore type_
+     * @param type _type
+     * @param type2 type
+     * @param type3 type_
      * @param httpDebugOption http debug option (to test parameter naming option)
      * @return RequestConfig
      */
-    fun getParameterNameMappingRequestConfig(underscoreType: kotlin.Long, type: kotlin.String, typeWithUnderscore: kotlin.String, httpDebugOption: kotlin.String) : RequestConfig<Unit> {
+    fun getParameterNameMappingRequestConfig(type: kotlin.Long, type2: kotlin.String, type3: kotlin.String, httpDebugOption: kotlin.String) : RequestConfig<Unit> {
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                put("type", listOf(type.toString()))
-                put("http_debug_option", listOf(httpDebugOption.toString()))
+                put("", listOf(type2.toString()))
+                put("", listOf(httpDebugOption.toString()))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        underscoreType.apply { localVariableHeaders["_type"] = this.toString() }
-        typeWithUnderscore.apply { localVariableHeaders["type_"] = this.toString() }
+        type.apply { localVariableHeaders[""] = this.toString() }
+        type3.apply { localVariableHeaders[""] = this.toString() }
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(

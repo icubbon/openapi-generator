@@ -42,7 +42,6 @@ defmodule OpenapiPetstore.Model.NullableClass do
   def decode(value) do
     value
      |> Deserializer.deserialize(:date_prop, :date, nil)
-     |> Deserializer.deserialize(:datetime_prop, :datetime, nil)
   end
 end
 

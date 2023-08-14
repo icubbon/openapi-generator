@@ -349,7 +349,7 @@ No authorization required
 
 ## GetParameterNameMapping
 
-> GetParameterNameMapping(ctx).UnderscoreType(underscoreType).Type_(type_).TypeWithUnderscore(typeWithUnderscore).HttpDebugOption(httpDebugOption).Execute()
+> GetParameterNameMapping(ctx).Type_(type_).Type_2(type_2).Type_3(type_3).HttpDebugOption(httpDebugOption).Execute()
 
 parameter name mapping test
 
@@ -366,14 +366,14 @@ import (
 )
 
 func main() {
-    underscoreType := int64(789) // int64 | _type
-    type_ := "type__example" // string | type
-    typeWithUnderscore := "typeWithUnderscore_example" // string | type_
+    type_ := int64(789) // int64 | _type
+    type_2 := "type__example" // string | type
+    type_3 := "type__example" // string | type_
     httpDebugOption := "httpDebugOption_example" // string | http debug option (to test parameter naming option)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    r, err := apiClient.FakeAPI.GetParameterNameMapping(context.Background()).UnderscoreType(underscoreType).Type_(type_).TypeWithUnderscore(typeWithUnderscore).HttpDebugOption(httpDebugOption).Execute()
+    r, err := apiClient.FakeAPI.GetParameterNameMapping(context.Background()).Type_(type_).Type_2(type_2).Type_3(type_3).HttpDebugOption(httpDebugOption).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `FakeAPI.GetParameterNameMapping``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -392,9 +392,9 @@ Other parameters are passed through a pointer to a apiGetParameterNameMappingReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **underscoreType** | **int64** | _type | 
- **type_** | **string** | type | 
- **typeWithUnderscore** | **string** | type_ | 
+ **type_** | **int64** | _type | 
+ **type_2** | **string** | type | 
+ **type_3** | **string** | type_ | 
  **httpDebugOption** | **string** | http debug option (to test parameter naming option) | 
 
 ### Return type

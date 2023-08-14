@@ -45,9 +45,9 @@ optionsApiResponse =
     }
   where
     table =
-      [ ("apiResponseCode", "code")
-      , ("apiResponseType", "type")
-      , ("apiResponseMessage", "message")
+      [ ("apiResponseCode", )
+      , ("apiResponseType", )
+      , ("apiResponseMessage", )
       ]
 
 
@@ -70,8 +70,8 @@ optionsCategory =
     }
   where
     table =
-      [ ("categoryId", "id")
-      , ("categoryName", "name")
+      [ ("categoryId", )
+      , ("categoryName", )
       ]
 
 
@@ -98,12 +98,12 @@ optionsOrder =
     }
   where
     table =
-      [ ("orderId", "id")
-      , ("orderPetId", "petId")
-      , ("orderQuantity", "quantity")
-      , ("orderShipDate", "shipDate")
-      , ("orderStatus", "status")
-      , ("orderComplete", "complete")
+      [ ("orderId", )
+      , ("orderPetId", )
+      , ("orderQuantity", )
+      , ("orderShipDate", )
+      , ("orderStatus", )
+      , ("orderComplete", )
       ]
 
 
@@ -130,19 +130,19 @@ optionsPet =
     }
   where
     table =
-      [ ("petId", "id")
-      , ("petCategory", "category")
-      , ("petName", "name")
-      , ("petPhotoUrls", "photoUrls")
-      , ("petTags", "tags")
-      , ("petStatus", "status")
+      [ ("petId", )
+      , ("petCategory", )
+      , ("petName", )
+      , ("petPhotoUrls", )
+      , ("petTags", )
+      , ("petStatus", )
       ]
 
 
 -- | description
 data SpecialCharacters = SpecialCharacters
-  { specialCharactersDoubleQuote :: Text -- ^ double quote
-  , specialCharactersBackSlash :: Text -- ^ backslash
+  { specialCharacters" :: Text -- ^ double quote
+  , specialCharacters\ :: Text -- ^ backslash
   } deriving (Show, Eq, Generic)
 
 instance FromJSON SpecialCharacters where
@@ -158,8 +158,8 @@ optionsSpecialCharacters =
     }
   where
     table =
-      [ ("specialCharactersDoubleQuote", "\"")
-      , ("specialCharactersBackSlash", "\\")
+      [ ("specialCharacters"", )
+      , ("specialCharacters\", )
       ]
 
 
@@ -182,8 +182,8 @@ optionsTag =
     }
   where
     table =
-      [ ("tagId", "id")
-      , ("tagName", "name")
+      [ ("tagId", )
+      , ("tagName", )
       ]
 
 
@@ -212,13 +212,13 @@ optionsUser =
     }
   where
     table =
-      [ ("userId", "id")
-      , ("userUsername", "username")
-      , ("userFirstName", "firstName")
-      , ("userLastName", "lastName")
-      , ("userEmail", "email")
-      , ("userPassword", "password")
-      , ("userPhone", "phone")
-      , ("userUserStatus", "userStatus")
+      [ ("userId", )
+      , ("userUsername", )
+      , ("userFirstName", )
+      , ("userLastName", )
+      , ("userEmail", )
+      , ("userPassword", )
+      , ("userPhone", )
+      , ("userUserStatus", )
       ]
 

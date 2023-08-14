@@ -176,11 +176,11 @@ class PetApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = A
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
-        apiKey?.apply { localVariableHeaders["api_key"] = this.toString() }
+        apiKey?.apply { localVariableHeaders[""] = this.toString() }
         
         return RequestConfig(
             method = RequestMethod.DELETE,
-            path = "/pet/{petId}".replace("{"+"petId"+"}", encodeURIComponent(petId.toString())),
+            path = "/pet/{petId}".replace("{"+""+"}", encodeURIComponent(petId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = true,
@@ -252,7 +252,7 @@ class PetApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = A
         val localVariableBody = null
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
-                put("tags", toMultiValue(tags.toList(), "csv"))
+                put("", toMultiValue(tags.toList(), "csv"))
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
         localVariableHeaders["Accept"] = "application/json"
@@ -327,7 +327,7 @@ class PetApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = A
         val localVariableQuery: MultiValueMap = mutableMapOf<kotlin.String, kotlin.collections.List<kotlin.String>>()
             .apply {
                 if (lastUpdated != null) {
-                    put("lastUpdated", listOf(parseDateToQueryString(lastUpdated)))
+                    put("", listOf(parseDateToQueryString(lastUpdated)))
                 }
             }
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -406,7 +406,7 @@ class PetApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = A
 
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/pet/{petId}".replace("{"+"petId"+"}", encodeURIComponent(petId.toString())),
+            path = "/pet/{petId}".replace("{"+""+"}", encodeURIComponent(petId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = true,
@@ -544,14 +544,14 @@ class PetApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = A
      */
     fun updatePetWithFormRequestConfig(petId: kotlin.Long, name: kotlin.String?, status: kotlin.String?) : RequestConfig<Map<String, PartConfig<*>>> {
         val localVariableBody = mapOf(
-            "name" to PartConfig(body = name, headers = mutableMapOf()),
-            "status" to PartConfig(body = status, headers = mutableMapOf()),)
+            "" to PartConfig(body = name, headers = mutableMapOf()),
+            "" to PartConfig(body = status, headers = mutableMapOf()),)
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf("Content-Type" to "application/x-www-form-urlencoded")
         
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/pet/{petId}".replace("{"+"petId"+"}", encodeURIComponent(petId.toString())),
+            path = "/pet/{petId}".replace("{"+""+"}", encodeURIComponent(petId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = true,
@@ -622,15 +622,15 @@ class PetApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = A
      */
     fun uploadFileRequestConfig(petId: kotlin.Long, additionalMetadata: kotlin.String?, file: java.io.File?) : RequestConfig<Map<String, PartConfig<*>>> {
         val localVariableBody = mapOf(
-            "additionalMetadata" to PartConfig(body = additionalMetadata, headers = mutableMapOf()),
-            "file" to PartConfig(body = file, headers = mutableMapOf()),)
+            "" to PartConfig(body = additionalMetadata, headers = mutableMapOf()),
+            "" to PartConfig(body = file, headers = mutableMapOf()),)
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf("Content-Type" to "multipart/form-data")
         localVariableHeaders["Accept"] = "application/json"
 
         return RequestConfig(
             method = RequestMethod.POST,
-            path = "/pet/{petId}/uploadImage".replace("{"+"petId"+"}", encodeURIComponent(petId.toString())),
+            path = "/pet/{petId}/uploadImage".replace("{"+""+"}", encodeURIComponent(petId.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = true,

@@ -108,7 +108,7 @@ class BirdApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient = 
 
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/v1/bird/{id}".replace("{"+"id"+"}", encodeURIComponent(id.toString())),
+            path = "/v1/bird/{id}".replace("{"+""+"}", encodeURIComponent(id.toString())),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

@@ -27,7 +27,6 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.Client;
 
 import java.lang.reflect.Type;

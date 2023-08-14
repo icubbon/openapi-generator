@@ -545,7 +545,7 @@ No authorization required
 
 ## get_parameter_name_mapping
 
-> get_parameter_name_mapping(underscore_type, type, type_with_underscore, http_debug_option)
+> get_parameter_name_mapping(_type, type, type_, http_debug_option)
 
 parameter name mapping test
 
@@ -556,14 +556,14 @@ require 'time'
 require 'petstore'
 
 api_instance = Petstore::FakeApi.new
-underscore_type = 789 # Integer | _type
+_type = 789 # Integer | _type
 type = 'type_example' # String | type
-type_with_underscore = 'type_with_underscore_example' # String | type_
+type_ = 'type__example' # String | type_
 http_debug_option = 'http_debug_option_example' # String | http debug option (to test parameter naming option)
 
 begin
   # parameter name mapping test
-  api_instance.get_parameter_name_mapping(underscore_type, type, type_with_underscore, http_debug_option)
+  api_instance.get_parameter_name_mapping(_type, type, type_, http_debug_option)
 rescue Petstore::ApiError => e
   puts "Error when calling FakeApi->get_parameter_name_mapping: #{e}"
 end
@@ -573,12 +573,12 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> get_parameter_name_mapping_with_http_info(underscore_type, type, type_with_underscore, http_debug_option)
+> <Array(nil, Integer, Hash)> get_parameter_name_mapping_with_http_info(_type, type, type_, http_debug_option)
 
 ```ruby
 begin
   # parameter name mapping test
-  data, status_code, headers = api_instance.get_parameter_name_mapping_with_http_info(underscore_type, type, type_with_underscore, http_debug_option)
+  data, status_code, headers = api_instance.get_parameter_name_mapping_with_http_info(_type, type, type_, http_debug_option)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
@@ -591,9 +591,9 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **underscore_type** | **Integer** | _type |  |
+| **_type** | **Integer** | _type |  |
 | **type** | **String** | type |  |
-| **type_with_underscore** | **String** | type_ |  |
+| **type_** | **String** | type_ |  |
 | **http_debug_option** | **String** | http debug option (to test parameter naming option) |  |
 
 ### Return type

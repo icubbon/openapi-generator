@@ -58,9 +58,9 @@ class PropertyNameMapping implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static $openAPITypes = [
         'http_debug_operation' => 'string',
-        'underscore_type' => 'string',
+        '_type' => 'string',
         'type' => 'string',
-        'type_with_underscore' => 'string'
+        'type_' => 'string'
     ];
 
     /**
@@ -72,9 +72,9 @@ class PropertyNameMapping implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static $openAPIFormats = [
         'http_debug_operation' => null,
-        'underscore_type' => null,
+        '_type' => null,
         'type' => null,
-        'type_with_underscore' => null
+        'type_' => null
     ];
 
     /**
@@ -84,9 +84,9 @@ class PropertyNameMapping implements ModelInterface, ArrayAccess, \JsonSerializa
       */
     protected static array $openAPINullables = [
         'http_debug_operation' => false,
-		'underscore_type' => false,
+		'_type' => false,
 		'type' => false,
-		'type_with_underscore' => false
+		'type_' => false
     ];
 
     /**
@@ -176,9 +176,9 @@ class PropertyNameMapping implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $attributeMap = [
         'http_debug_operation' => 'http_debug_operation',
-        'underscore_type' => '_type',
+        '_type' => '_type',
         'type' => 'type',
-        'type_with_underscore' => 'type_'
+        'type_' => 'type_'
     ];
 
     /**
@@ -188,9 +188,9 @@ class PropertyNameMapping implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $setters = [
         'http_debug_operation' => 'setHttpDebugOperation',
-        'underscore_type' => 'setUnderscoreType',
+        '_type' => 'setType',
         'type' => 'setType',
-        'type_with_underscore' => 'setTypeWithUnderscore'
+        'type_' => 'setType'
     ];
 
     /**
@@ -200,9 +200,9 @@ class PropertyNameMapping implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $getters = [
         'http_debug_operation' => 'getHttpDebugOperation',
-        'underscore_type' => 'getUnderscoreType',
+        '_type' => 'getType',
         'type' => 'getType',
-        'type_with_underscore' => 'getTypeWithUnderscore'
+        'type_' => 'getType'
     ];
 
     /**
@@ -263,9 +263,9 @@ class PropertyNameMapping implements ModelInterface, ArrayAccess, \JsonSerializa
     public function __construct(array $data = null)
     {
         $this->setIfExists('http_debug_operation', $data ?? [], null);
-        $this->setIfExists('underscore_type', $data ?? [], null);
+        $this->setIfExists('_type', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('type_with_underscore', $data ?? [], null);
+        $this->setIfExists('type_', $data ?? [], null);
     }
 
     /**
@@ -338,28 +338,28 @@ class PropertyNameMapping implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets underscore_type
+     * Gets _type
      *
      * @return string|null
      */
-    public function getUnderscoreType()
+    public function getType()
     {
-        return $this->container['underscore_type'];
+        return $this->container['_type'];
     }
 
     /**
-     * Sets underscore_type
+     * Sets _type
      *
-     * @param string|null $underscore_type underscore_type
+     * @param string|null $_type _type
      *
      * @return self
      */
-    public function setUnderscoreType($underscore_type)
+    public function setType($_type)
     {
-        if (is_null($underscore_type)) {
-            throw new \InvalidArgumentException('non-nullable underscore_type cannot be null');
+        if (is_null($_type)) {
+            throw new \InvalidArgumentException('non-nullable _type cannot be null');
         }
-        $this->container['underscore_type'] = $underscore_type;
+        $this->container['_type'] = $_type;
 
         return $this;
     }
@@ -392,28 +392,28 @@ class PropertyNameMapping implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets type_with_underscore
+     * Gets type_
      *
      * @return string|null
      */
-    public function getTypeWithUnderscore()
+    public function getType()
     {
-        return $this->container['type_with_underscore'];
+        return $this->container['type_'];
     }
 
     /**
-     * Sets type_with_underscore
+     * Sets type_
      *
-     * @param string|null $type_with_underscore type_with_underscore
+     * @param string|null $type_ type_
      *
      * @return self
      */
-    public function setTypeWithUnderscore($type_with_underscore)
+    public function setType($type_)
     {
-        if (is_null($type_with_underscore)) {
-            throw new \InvalidArgumentException('non-nullable type_with_underscore cannot be null');
+        if (is_null($type_)) {
+            throw new \InvalidArgumentException('non-nullable type_ cannot be null');
         }
-        $this->container['type_with_underscore'] = $type_with_underscore;
+        $this->container['type_'] = $type_;
 
         return $this;
     }

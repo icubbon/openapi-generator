@@ -91,8 +91,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;List&lt;RolesReportsHash&gt;&gt;</returns>
-        List<List<RolesReportsHash>> RolesReportGet(int operationIndex = 0);
+        /// <returns>List&lt;List&gt;</returns>
+        List<List> RolesReportGet(int operationIndex = 0);
 
         /// <summary>
         /// 
@@ -102,8 +102,8 @@ namespace Org.OpenAPITools.Api
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;List&lt;RolesReportsHash&gt;&gt;</returns>
-        ApiResponse<List<List<RolesReportsHash>>> RolesReportGetWithHttpInfo(int operationIndex = 0);
+        /// <returns>ApiResponse of List&lt;List&gt;</returns>
+        ApiResponse<List<List>> RolesReportGetWithHttpInfo(int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -193,8 +193,8 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;List&lt;RolesReportsHash&gt;&gt;</returns>
-        System.Threading.Tasks.Task<List<List<RolesReportsHash>>> RolesReportGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of List&lt;List&gt;</returns>
+        System.Threading.Tasks.Task<List<List>> RolesReportGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// 
@@ -205,8 +205,8 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;List&lt;RolesReportsHash&gt;&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<List<RolesReportsHash>>>> RolesReportGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (List&lt;List&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<List>>> RolesReportGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -726,10 +726,10 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;List&lt;RolesReportsHash&gt;&gt;</returns>
-        public List<List<RolesReportsHash>> RolesReportGet(int operationIndex = 0)
+        /// <returns>List&lt;List&gt;</returns>
+        public List<List> RolesReportGet(int operationIndex = 0)
         {
-            Org.OpenAPITools.Client.ApiResponse<List<List<RolesReportsHash>>> localVarResponse = RolesReportGetWithHttpInfo();
+            Org.OpenAPITools.Client.ApiResponse<List<List>> localVarResponse = RolesReportGetWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -738,8 +738,8 @@ namespace Org.OpenAPITools.Api
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;List&lt;RolesReportsHash&gt;&gt;</returns>
-        public Org.OpenAPITools.Client.ApiResponse<List<List<RolesReportsHash>>> RolesReportGetWithHttpInfo(int operationIndex = 0)
+        /// <returns>ApiResponse of List&lt;List&gt;</returns>
+        public Org.OpenAPITools.Client.ApiResponse<List<List>> RolesReportGetWithHttpInfo(int operationIndex = 0)
         {
             Org.OpenAPITools.Client.RequestOptions localVarRequestOptions = new Org.OpenAPITools.Client.RequestOptions();
 
@@ -769,7 +769,7 @@ namespace Org.OpenAPITools.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<List<RolesReportsHash>>>("/roles/report", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<List>>("/roles/report", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RolesReportGet", localVarResponse);
@@ -788,10 +788,10 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;List&lt;RolesReportsHash&gt;&gt;</returns>
-        public async System.Threading.Tasks.Task<List<List<RolesReportsHash>>> RolesReportGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of List&lt;List&gt;</returns>
+        public async System.Threading.Tasks.Task<List<List>> RolesReportGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Org.OpenAPITools.Client.ApiResponse<List<List<RolesReportsHash>>> localVarResponse = await RolesReportGetWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            Org.OpenAPITools.Client.ApiResponse<List<List>> localVarResponse = await RolesReportGetWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -801,8 +801,8 @@ namespace Org.OpenAPITools.Api
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;List&lt;RolesReportsHash&gt;&gt;)</returns>
-        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<List<List<RolesReportsHash>>>> RolesReportGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (List&lt;List&gt;)</returns>
+        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<List<List>>> RolesReportGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Org.OpenAPITools.Client.RequestOptions localVarRequestOptions = new Org.OpenAPITools.Client.RequestOptions();
@@ -833,7 +833,7 @@ namespace Org.OpenAPITools.Api
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<List<RolesReportsHash>>>("/roles/report", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<List>>("/roles/report", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

@@ -84,8 +84,8 @@ public class ScalarAnyOf extends AbstractOpenApiSchema {
                     }
                     // check if the actual instance is of the type `BigDecimal`
                     if (value.getActualInstance() instanceof BigDecimal) {
-                      JsonElement element = adapterBigDecimal.toJsonTree((BigDecimal)value.getActualInstance());
-                      elementAdapter.write(out, element);
+                      JsonPrimitive primitive = adapterBigDecimal.toJsonTree((BigDecimal)value.getActualInstance()).getAsJsonPrimitive();
+                      elementAdapter.write(out, primitive);
                       return;
                     }
                     // check if the actual instance is of the type `Boolean`

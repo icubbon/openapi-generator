@@ -29,15 +29,15 @@ package body Samples.Petstore.Clients is
    --  parameter name mapping test
    procedure Get_Parameter_Name_Mapping
       (Client : in out Client_Type;
-       UnderscoreType : in Swagger.Long;
-       P_Type : in Swagger.UString;
-       TypeWithUnderscore : in Swagger.UString;
+       P_Type : in Swagger.Long;
+       P_Type2 : in Swagger.UString;
+       P_Type3 : in Swagger.UString;
        Http_Debug_Option : in Swagger.UString) is
       URI   : Swagger.Clients.URI_Type;
    begin
 
 
-      URI.Add_Param ("type", P_Type);
+      URI.Add_Param ("type", P_Type2);
       URI.Add_Param ("http_debug_option", Http_Debug_Option);
       URI.Set_Path ("/fake/parameter-name-mapping");
       Client.Call (Swagger.Clients.GET, URI);

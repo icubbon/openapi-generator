@@ -471,7 +471,7 @@ No authorization required
 ## `getParameterNameMapping()`
 
 ```php
-getParameterNameMapping($underscore_type, $type, $type_with_underscore, $type_with_dash, $http_debug_option)
+getParameterNameMapping($_type, $type, $type_, $type_2, $http_debug_option)
 ```
 
 parameter name mapping test
@@ -489,14 +489,14 @@ $apiInstance = new OpenAPI\Client\Api\FakeApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$underscore_type = 56; // int | _type
+$_type = 56; // int | _type
 $type = 'type_example'; // string | type
-$type_with_underscore = 'type_with_underscore_example'; // string | type_
-$type_with_dash = 'type_with_dash_example'; // string | type-
+$type_ = 'type__example'; // string | type_
+$type_2 = 'type__example'; // string | type-
 $http_debug_option = 'http_debug_option_example'; // string | http debug option (to test parameter naming option)
 
 try {
-    $apiInstance->getParameterNameMapping($underscore_type, $type, $type_with_underscore, $type_with_dash, $http_debug_option);
+    $apiInstance->getParameterNameMapping($_type, $type, $type_, $type_2, $http_debug_option);
 } catch (Exception $e) {
     echo 'Exception when calling FakeApi->getParameterNameMapping: ', $e->getMessage(), PHP_EOL;
 }
@@ -506,10 +506,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **underscore_type** | **int**| _type | |
+| **_type** | **int**| _type | |
 | **type** | **string**| type | |
-| **type_with_underscore** | **string**| type_ | |
-| **type_with_dash** | **string**| type- | |
+| **type_** | **string**| type_ | |
+| **type_2** | **string**| type- | |
 | **http_debug_option** | **string**| http debug option (to test parameter naming option) | |
 
 ### Return type

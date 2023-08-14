@@ -35,15 +35,15 @@ namespace Org.OpenAPITools.Model
         /// Initializes a new instance of the <see cref="PropertyNameMapping" /> class.
         /// </summary>
         /// <param name="httpDebugOperation">httpDebugOperation.</param>
-        /// <param name="underscoreType">underscoreType.</param>
         /// <param name="type">type.</param>
-        /// <param name="typeWithUnderscore">typeWithUnderscore.</param>
-        public PropertyNameMapping(string httpDebugOperation = default(string), string underscoreType = default(string), string type = default(string), string typeWithUnderscore = default(string))
+        /// <param name="type">type.</param>
+        /// <param name="type">type.</param>
+        public PropertyNameMapping(string httpDebugOperation = default(string), string type = default(string), string type = default(string), string type = default(string))
         {
             this.HttpDebugOperation = httpDebugOperation;
-            this.UnderscoreType = underscoreType;
             this.Type = type;
-            this.TypeWithUnderscore = typeWithUnderscore;
+            this.Type = type;
+            this.Type = type;
         }
 
         /// <summary>
@@ -53,10 +53,10 @@ namespace Org.OpenAPITools.Model
         public string HttpDebugOperation { get; set; }
 
         /// <summary>
-        /// Gets or Sets UnderscoreType
+        /// Gets or Sets Type
         /// </summary>
         [DataMember(Name = "_type", EmitDefaultValue = false)]
-        public string UnderscoreType { get; set; }
+        public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets Type
@@ -65,10 +65,10 @@ namespace Org.OpenAPITools.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets TypeWithUnderscore
+        /// Gets or Sets Type
         /// </summary>
         [DataMember(Name = "type_", EmitDefaultValue = false)]
-        public string TypeWithUnderscore { get; set; }
+        public string Type { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -79,9 +79,9 @@ namespace Org.OpenAPITools.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class PropertyNameMapping {\n");
             sb.Append("  HttpDebugOperation: ").Append(HttpDebugOperation).Append("\n");
-            sb.Append("  UnderscoreType: ").Append(UnderscoreType).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  TypeWithUnderscore: ").Append(TypeWithUnderscore).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,9 +123,9 @@ namespace Org.OpenAPITools.Model
                     this.HttpDebugOperation.Equals(input.HttpDebugOperation))
                 ) && 
                 (
-                    this.UnderscoreType == input.UnderscoreType ||
-                    (this.UnderscoreType != null &&
-                    this.UnderscoreType.Equals(input.UnderscoreType))
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
                     this.Type == input.Type ||
@@ -133,9 +133,9 @@ namespace Org.OpenAPITools.Model
                     this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.TypeWithUnderscore == input.TypeWithUnderscore ||
-                    (this.TypeWithUnderscore != null &&
-                    this.TypeWithUnderscore.Equals(input.TypeWithUnderscore))
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 );
         }
 
@@ -152,17 +152,17 @@ namespace Org.OpenAPITools.Model
                 {
                     hashCode = (hashCode * 59) + this.HttpDebugOperation.GetHashCode();
                 }
-                if (this.UnderscoreType != null)
+                if (this.Type != null)
                 {
-                    hashCode = (hashCode * 59) + this.UnderscoreType.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 }
                 if (this.Type != null)
                 {
                     hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 }
-                if (this.TypeWithUnderscore != null)
+                if (this.Type != null)
                 {
-                    hashCode = (hashCode * 59) + this.TypeWithUnderscore.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Type.GetHashCode();
                 }
                 return hashCode;
             }

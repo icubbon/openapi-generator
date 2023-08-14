@@ -10,6 +10,10 @@
 package petstoreserver
 
 
+import (
+	"encoding/json"
+)
+
 
 
 // User - A User who is purchasing from the pet store

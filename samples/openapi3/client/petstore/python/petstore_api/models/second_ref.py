@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
+from typing import Optional
 from pydantic import BaseModel, StrictStr
 
 class SecondRef(BaseModel):
@@ -85,6 +85,4 @@ class SecondRef(BaseModel):
 
         return _obj
 
-from petstore_api.models.circular_reference_model import CircularReferenceModel
-SecondRef.update_forward_refs()
 

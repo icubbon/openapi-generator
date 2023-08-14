@@ -95,22 +95,26 @@ func (c *UserAPIController) Routes() Routes {
 
 // CreateUser - Create user
 func (c *UserAPIController) CreateUser(w http.ResponseWriter, r *http.Request) {
-	userParam := User{}
+	userParam := &User{}
 	d := json.NewDecoder(r.Body)
 	d.DisallowUnknownFields()
-	if err := d.Decode(&userParam); err != nil {
+	if err := d.Decode(userParam); err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-	if err := AssertUserRequired(userParam); err != nil {
+	if userParam == nil {
+		c.errorHandler(w, r, &ParsingError{Err: errors.New("required parameter User is missing")}, nil)
+		return
+	}
+	if err := AssertUserRequired(*userParam); err != nil {
 		c.errorHandler(w, r, err, nil)
 		return
 	}
-	if err := AssertUserConstraints(userParam); err != nil {
+	if err := AssertUserConstraints(*userParam); err != nil {
 		c.errorHandler(w, r, err, nil)
 		return
 	}
-	result, err := c.service.CreateUser(r.Context(), userParam)
+	result, err := c.service.CreateUser(r.Context(), *userParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
 		c.errorHandler(w, r, err, &result)
@@ -122,10 +126,10 @@ func (c *UserAPIController) CreateUser(w http.ResponseWriter, r *http.Request) {
 
 // CreateUsersWithArrayInput - Creates list of users with given input array
 func (c *UserAPIController) CreateUsersWithArrayInput(w http.ResponseWriter, r *http.Request) {
-	userParam := []User{}
+	userParam := &[]User{}
 	d := json.NewDecoder(r.Body)
 	d.DisallowUnknownFields()
-	if err := d.Decode(&userParam); err != nil {
+	if err := d.Decode(userParam); err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
@@ -147,10 +151,10 @@ func (c *UserAPIController) CreateUsersWithArrayInput(w http.ResponseWriter, r *
 
 // CreateUsersWithListInput - Creates list of users with given input array
 func (c *UserAPIController) CreateUsersWithListInput(w http.ResponseWriter, r *http.Request) {
-	userParam := []User{}
+	userParam := &[]User{}
 	d := json.NewDecoder(r.Body)
 	d.DisallowUnknownFields()
-	if err := d.Decode(&userParam); err != nil {
+	if err := d.Decode(userParam); err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
@@ -179,7 +183,7 @@ func (c *UserAPIController) DeleteUser(w http.ResponseWriter, r *http.Request) {
 		WithParse[bool](parseBool),
 	)
 	if err != nil {
-		w.WriteHeader(500)
+		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
 	result, err := c.service.DeleteUser(r.Context(), usernameParam, booleanTestParam)
@@ -247,7 +251,7 @@ func (c *UserAPIController) LoginUser(w http.ResponseWriter, r *http.Request) {
 		WithParse[bool](parseBool),
 	)
 	if err != nil {
-		w.WriteHeader(500)
+		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
 	result, err := c.service.LoginUser(r.Context(), usernameParam, passwordParam, int32TestParam, int64TestParam, float32TestParam, float64TestParam, booleanTestParam)
@@ -275,22 +279,26 @@ func (c *UserAPIController) LogoutUser(w http.ResponseWriter, r *http.Request) {
 // UpdateUser - Updated user
 func (c *UserAPIController) UpdateUser(w http.ResponseWriter, r *http.Request) {
 	usernameParam := chi.URLParam(r, "username")
-	userParam := User{}
+	userParam := &User{}
 	d := json.NewDecoder(r.Body)
 	d.DisallowUnknownFields()
-	if err := d.Decode(&userParam); err != nil {
+	if err := d.Decode(userParam); err != nil {
 		c.errorHandler(w, r, &ParsingError{Err: err}, nil)
 		return
 	}
-	if err := AssertUserRequired(userParam); err != nil {
+	if userParam == nil {
+		c.errorHandler(w, r, &ParsingError{Err: errors.New("required parameter User is missing")}, nil)
+		return
+	}
+	if err := AssertUserRequired(*userParam); err != nil {
 		c.errorHandler(w, r, err, nil)
 		return
 	}
-	if err := AssertUserConstraints(userParam); err != nil {
+	if err := AssertUserConstraints(*userParam); err != nil {
 		c.errorHandler(w, r, err, nil)
 		return
 	}
-	result, err := c.service.UpdateUser(r.Context(), usernameParam, userParam)
+	result, err := c.service.UpdateUser(r.Context(), usernameParam, *userParam)
 	// If an error occurred, encode the error with the status code
 	if err != nil {
 		c.errorHandler(w, r, err, &result)

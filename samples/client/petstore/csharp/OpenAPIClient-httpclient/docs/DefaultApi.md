@@ -274,7 +274,7 @@ No authorization required
 
 <a id="rolesreportget"></a>
 # **RolesReportGet**
-> List&lt;List&lt;RolesReportsHash&gt;&gt; RolesReportGet ()
+> List&lt;List&gt; RolesReportGet ()
 
 
 
@@ -302,7 +302,7 @@ namespace Example
 
             try
             {
-                List<List<RolesReportsHash>> result = apiInstance.RolesReportGet();
+                List<List> result = apiInstance.RolesReportGet();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -322,7 +322,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    ApiResponse<List<List<RolesReportsHash>>> response = apiInstance.RolesReportGetWithHttpInfo();
+    ApiResponse<List<List>> response = apiInstance.RolesReportGetWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -339,7 +339,7 @@ catch (ApiException e)
 This endpoint does not need any parameter.
 ### Return type
 
-**List<List<RolesReportsHash>>**
+**List<List>**
 
 ### Authorization
 

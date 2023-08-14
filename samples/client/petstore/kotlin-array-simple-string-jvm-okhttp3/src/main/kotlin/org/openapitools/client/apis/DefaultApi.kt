@@ -104,7 +104,7 @@ class DefaultApi(basePath: kotlin.String = defaultBasePath, client: OkHttpClient
         
         return RequestConfig(
             method = RequestMethod.GET,
-            path = "/{ids}".replace("{"+"ids"+"}", encodeURIComponent(ids.joinToString(","))),
+            path = "/{ids}".replace("{"+""+"}", encodeURIComponent(ids.joinToString(","))),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,

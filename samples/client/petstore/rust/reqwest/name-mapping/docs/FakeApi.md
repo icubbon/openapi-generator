@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## get_parameter_name_mapping
 
-> get_parameter_name_mapping(underscore_type, r#type, type_with_underscore, dash_type, http_debug_option)
+> get_parameter_name_mapping(_type, r#type, type_, _type2, http_debug_option)
 parameter name mapping test
 
 ### Parameters
@@ -18,10 +18,10 @@ parameter name mapping test
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**underscore_type** | **i64** | _type | [required] |
+**_type** | **i64** | _type | [required] |
 **r#type** | **String** | type | [required] |
-**type_with_underscore** | **String** | type_ | [required] |
-**dash_type** | **String** | -type | [required] |
+**type_** | **String** | type_ | [required] |
+**_type2** | **String** | -type | [required] |
 **http_debug_option** | **String** | http debug option (to test parameter naming option) | [required] |
 
 ### Return type

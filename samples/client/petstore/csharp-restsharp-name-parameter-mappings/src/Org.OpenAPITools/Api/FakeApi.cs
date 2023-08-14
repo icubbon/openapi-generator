@@ -30,13 +30,13 @@ namespace Org.OpenAPITools.Api
         /// parameter name mapping test
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="UnderscoreType">_type</param>
-        /// <param name="type">type</param>
-        /// <param name="TypeWithUnderscore">type_</param>
+        /// <param name="type">_type</param>
+        /// <param name="type2">type</param>
+        /// <param name="type3">type_</param>
         /// <param name="httpDebugOption">http debug option (to test parameter naming option)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Env</returns>
-        Env GetParameterNameMapping(long UnderscoreType, string type, string TypeWithUnderscore, string httpDebugOption, int operationIndex = 0);
+        /// <returns>Environment</returns>
+        Environment GetParameterNameMapping(long type, string type2, string type3, string httpDebugOption, int operationIndex = 0);
 
         /// <summary>
         /// parameter name mapping test
@@ -45,13 +45,13 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="UnderscoreType">_type</param>
-        /// <param name="type">type</param>
-        /// <param name="TypeWithUnderscore">type_</param>
+        /// <param name="type">_type</param>
+        /// <param name="type2">type</param>
+        /// <param name="type3">type_</param>
         /// <param name="httpDebugOption">http debug option (to test parameter naming option)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Env</returns>
-        ApiResponse<Env> GetParameterNameMappingWithHttpInfo(long UnderscoreType, string type, string TypeWithUnderscore, string httpDebugOption, int operationIndex = 0);
+        /// <returns>ApiResponse of Environment</returns>
+        ApiResponse<Environment> GetParameterNameMappingWithHttpInfo(long type, string type2, string type3, string httpDebugOption, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -68,14 +68,14 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="UnderscoreType">_type</param>
-        /// <param name="type">type</param>
-        /// <param name="TypeWithUnderscore">type_</param>
+        /// <param name="type">_type</param>
+        /// <param name="type2">type</param>
+        /// <param name="type3">type_</param>
         /// <param name="httpDebugOption">http debug option (to test parameter naming option)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Env</returns>
-        System.Threading.Tasks.Task<Env> GetParameterNameMappingAsync(long UnderscoreType, string type, string TypeWithUnderscore, string httpDebugOption, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of Environment</returns>
+        System.Threading.Tasks.Task<Environment> GetParameterNameMappingAsync(long type, string type2, string type3, string httpDebugOption, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// parameter name mapping test
@@ -84,14 +84,14 @@ namespace Org.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="UnderscoreType">_type</param>
-        /// <param name="type">type</param>
-        /// <param name="TypeWithUnderscore">type_</param>
+        /// <param name="type">_type</param>
+        /// <param name="type2">type</param>
+        /// <param name="type3">type_</param>
         /// <param name="httpDebugOption">http debug option (to test parameter naming option)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Env)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Env>> GetParameterNameMappingWithHttpInfoAsync(long UnderscoreType, string type, string TypeWithUnderscore, string httpDebugOption, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (Environment)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Environment>> GetParameterNameMappingWithHttpInfoAsync(long type, string type2, string type3, string httpDebugOption, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -216,15 +216,15 @@ namespace Org.OpenAPITools.Api
         /// parameter name mapping test 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="UnderscoreType">_type</param>
-        /// <param name="type">type</param>
-        /// <param name="TypeWithUnderscore">type_</param>
+        /// <param name="type">_type</param>
+        /// <param name="type2">type</param>
+        /// <param name="type3">type_</param>
         /// <param name="httpDebugOption">http debug option (to test parameter naming option)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>Env</returns>
-        public Env GetParameterNameMapping(long UnderscoreType, string type, string TypeWithUnderscore, string httpDebugOption, int operationIndex = 0)
+        /// <returns>Environment</returns>
+        public Environment GetParameterNameMapping(long type, string type2, string type3, string httpDebugOption, int operationIndex = 0)
         {
-            Org.OpenAPITools.Client.ApiResponse<Env> localVarResponse = GetParameterNameMappingWithHttpInfo(UnderscoreType, type, TypeWithUnderscore, httpDebugOption);
+            Org.OpenAPITools.Client.ApiResponse<Environment> localVarResponse = GetParameterNameMappingWithHttpInfo(type, type2, type3, httpDebugOption);
             return localVarResponse.Data;
         }
 
@@ -232,24 +232,24 @@ namespace Org.OpenAPITools.Api
         /// parameter name mapping test 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="UnderscoreType">_type</param>
-        /// <param name="type">type</param>
-        /// <param name="TypeWithUnderscore">type_</param>
+        /// <param name="type">_type</param>
+        /// <param name="type2">type</param>
+        /// <param name="type3">type_</param>
         /// <param name="httpDebugOption">http debug option (to test parameter naming option)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of Env</returns>
-        public Org.OpenAPITools.Client.ApiResponse<Env> GetParameterNameMappingWithHttpInfo(long UnderscoreType, string type, string TypeWithUnderscore, string httpDebugOption, int operationIndex = 0)
+        /// <returns>ApiResponse of Environment</returns>
+        public Org.OpenAPITools.Client.ApiResponse<Environment> GetParameterNameMappingWithHttpInfo(long type, string type2, string type3, string httpDebugOption, int operationIndex = 0)
         {
-            // verify the required parameter 'type' is set
-            if (type == null)
+            // verify the required parameter 'type2' is set
+            if (type2 == null)
             {
-                throw new Org.OpenAPITools.Client.ApiException(400, "Missing required parameter 'type' when calling FakeApi->GetParameterNameMapping");
+                throw new Org.OpenAPITools.Client.ApiException(400, "Missing required parameter 'type2' when calling FakeApi->GetParameterNameMapping");
             }
 
-            // verify the required parameter 'TypeWithUnderscore' is set
-            if (TypeWithUnderscore == null)
+            // verify the required parameter 'type3' is set
+            if (type3 == null)
             {
-                throw new Org.OpenAPITools.Client.ApiException(400, "Missing required parameter 'TypeWithUnderscore' when calling FakeApi->GetParameterNameMapping");
+                throw new Org.OpenAPITools.Client.ApiException(400, "Missing required parameter 'type3' when calling FakeApi->GetParameterNameMapping");
             }
 
             // verify the required parameter 'httpDebugOption' is set
@@ -280,17 +280,17 @@ namespace Org.OpenAPITools.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.QueryParameters.Add(Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "type", type));
+            localVarRequestOptions.QueryParameters.Add(Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "type", type2));
             localVarRequestOptions.QueryParameters.Add(Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "http_debug_option", httpDebugOption));
-            localVarRequestOptions.HeaderParameters.Add("_type", Org.OpenAPITools.Client.ClientUtils.ParameterToString(UnderscoreType)); // header parameter
-            localVarRequestOptions.HeaderParameters.Add("type_", Org.OpenAPITools.Client.ClientUtils.ParameterToString(TypeWithUnderscore)); // header parameter
+            localVarRequestOptions.HeaderParameters.Add("_type", Org.OpenAPITools.Client.ClientUtils.ParameterToString(type)); // header parameter
+            localVarRequestOptions.HeaderParameters.Add("type_", Org.OpenAPITools.Client.ClientUtils.ParameterToString(type3)); // header parameter
 
             localVarRequestOptions.Operation = "FakeApi.GetParameterNameMapping";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Env>("/fake/parameter-name-mapping", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<Environment>("/fake/parameter-name-mapping", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetParameterNameMapping", localVarResponse);
@@ -307,16 +307,16 @@ namespace Org.OpenAPITools.Api
         /// parameter name mapping test 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="UnderscoreType">_type</param>
-        /// <param name="type">type</param>
-        /// <param name="TypeWithUnderscore">type_</param>
+        /// <param name="type">_type</param>
+        /// <param name="type2">type</param>
+        /// <param name="type3">type_</param>
         /// <param name="httpDebugOption">http debug option (to test parameter naming option)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Env</returns>
-        public async System.Threading.Tasks.Task<Env> GetParameterNameMappingAsync(long UnderscoreType, string type, string TypeWithUnderscore, string httpDebugOption, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of Environment</returns>
+        public async System.Threading.Tasks.Task<Environment> GetParameterNameMappingAsync(long type, string type2, string type3, string httpDebugOption, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Org.OpenAPITools.Client.ApiResponse<Env> localVarResponse = await GetParameterNameMappingWithHttpInfoAsync(UnderscoreType, type, TypeWithUnderscore, httpDebugOption, operationIndex, cancellationToken).ConfigureAwait(false);
+            Org.OpenAPITools.Client.ApiResponse<Environment> localVarResponse = await GetParameterNameMappingWithHttpInfoAsync(type, type2, type3, httpDebugOption, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -324,25 +324,25 @@ namespace Org.OpenAPITools.Api
         /// parameter name mapping test 
         /// </summary>
         /// <exception cref="Org.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="UnderscoreType">_type</param>
-        /// <param name="type">type</param>
-        /// <param name="TypeWithUnderscore">type_</param>
+        /// <param name="type">_type</param>
+        /// <param name="type2">type</param>
+        /// <param name="type3">type_</param>
         /// <param name="httpDebugOption">http debug option (to test parameter naming option)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Env)</returns>
-        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<Env>> GetParameterNameMappingWithHttpInfoAsync(long UnderscoreType, string type, string TypeWithUnderscore, string httpDebugOption, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (Environment)</returns>
+        public async System.Threading.Tasks.Task<Org.OpenAPITools.Client.ApiResponse<Environment>> GetParameterNameMappingWithHttpInfoAsync(long type, string type2, string type3, string httpDebugOption, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'type' is set
-            if (type == null)
+            // verify the required parameter 'type2' is set
+            if (type2 == null)
             {
-                throw new Org.OpenAPITools.Client.ApiException(400, "Missing required parameter 'type' when calling FakeApi->GetParameterNameMapping");
+                throw new Org.OpenAPITools.Client.ApiException(400, "Missing required parameter 'type2' when calling FakeApi->GetParameterNameMapping");
             }
 
-            // verify the required parameter 'TypeWithUnderscore' is set
-            if (TypeWithUnderscore == null)
+            // verify the required parameter 'type3' is set
+            if (type3 == null)
             {
-                throw new Org.OpenAPITools.Client.ApiException(400, "Missing required parameter 'TypeWithUnderscore' when calling FakeApi->GetParameterNameMapping");
+                throw new Org.OpenAPITools.Client.ApiException(400, "Missing required parameter 'type3' when calling FakeApi->GetParameterNameMapping");
             }
 
             // verify the required parameter 'httpDebugOption' is set
@@ -374,17 +374,17 @@ namespace Org.OpenAPITools.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.QueryParameters.Add(Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "type", type));
+            localVarRequestOptions.QueryParameters.Add(Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "type", type2));
             localVarRequestOptions.QueryParameters.Add(Org.OpenAPITools.Client.ClientUtils.ParameterToMultiMap("", "http_debug_option", httpDebugOption));
-            localVarRequestOptions.HeaderParameters.Add("_type", Org.OpenAPITools.Client.ClientUtils.ParameterToString(UnderscoreType)); // header parameter
-            localVarRequestOptions.HeaderParameters.Add("type_", Org.OpenAPITools.Client.ClientUtils.ParameterToString(TypeWithUnderscore)); // header parameter
+            localVarRequestOptions.HeaderParameters.Add("_type", Org.OpenAPITools.Client.ClientUtils.ParameterToString(type)); // header parameter
+            localVarRequestOptions.HeaderParameters.Add("type_", Org.OpenAPITools.Client.ClientUtils.ParameterToString(type3)); // header parameter
 
             localVarRequestOptions.Operation = "FakeApi.GetParameterNameMapping";
             localVarRequestOptions.OperationIndex = operationIndex;
 
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Env>("/fake/parameter-name-mapping", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Environment>("/fake/parameter-name-mapping", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

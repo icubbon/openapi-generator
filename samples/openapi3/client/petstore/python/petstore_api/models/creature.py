@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict
+
 from pydantic import BaseModel, Field, StrictStr
 from petstore_api.models.creature_info import CreatureInfo
 

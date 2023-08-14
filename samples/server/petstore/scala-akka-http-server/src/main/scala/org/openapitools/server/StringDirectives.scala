@@ -1,9 +1,9 @@
 package org.openapitools.server
 
-import akka.http.scaladsl.common._
-import akka.http.scaladsl.server.{Directive, Directive0, Directive1, InvalidRequiredValueForQueryParamRejection, MalformedFormFieldRejection, MissingFormFieldRejection, MissingQueryParamRejection, UnsupportedRequestContentTypeRejection}
-import akka.http.scaladsl.server.directives.BasicDirectives
-import akka.http.scaladsl.unmarshalling.Unmarshaller.UnsupportedContentTypeException
+import .http.scaladsl.common._
+import .http.scaladsl.server.{Directive, Directive0, Directive1, InvalidRequiredValueForQueryParamRejection, MalformedFormFieldRejection, MissingFormFieldRejection, MissingQueryParamRejection, UnsupportedRequestContentTypeRejection}
+import .http.scaladsl.server.directives.BasicDirectives
+import .http.scaladsl.unmarshalling.Unmarshaller.UnsupportedContentTypeException
 
 import scala.concurrent.Future
 import scala.util.{Failure, Success}
@@ -48,10 +48,10 @@ object StringDirectives extends StringDirectives {
         def apply(value: A): B = f(value)
       }
 
-    import akka.http.scaladsl.server.directives.BasicDirectives._
-    import akka.http.scaladsl.server.directives.FutureDirectives._
-    import akka.http.scaladsl.server.directives.RouteDirectives._
-    import akka.http.scaladsl.unmarshalling._
+    import .http.scaladsl.server.directives.BasicDirectives._
+    import .http.scaladsl.server.directives.FutureDirectives._
+    import .http.scaladsl.server.directives.RouteDirectives._
+    import .http.scaladsl.unmarshalling._
 
     type FSU[T] = FromStringUnmarshaller[T]
     type FSOU[T] = Unmarshaller[Option[String], T]
@@ -111,8 +111,8 @@ object StringDirectives extends StringDirectives {
 
     //////////////////// tuple support ////////////////////
 
-    import akka.http.scaladsl.server.util.BinaryPolyFunc
-    import akka.http.scaladsl.server.util.TupleOps._
+    import .http.scaladsl.server.util.BinaryPolyFunc
+    import .http.scaladsl.server.util.TupleOps._
 
     implicit def forTuple[T](implicit fold: FoldLeft[Directive0, T, ConvertStringDefAndConcatenate.type]): StringDefAux[T, fold.Out] =
       stringDef[T, fold.Out](fold(BasicDirectives.pass, _))

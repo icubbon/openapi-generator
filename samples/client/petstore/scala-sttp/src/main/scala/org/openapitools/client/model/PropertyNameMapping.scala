@@ -13,9 +13,9 @@ package org.openapitools.client.model
 
 
 case class PropertyNameMapping(
-  `httpDebugOperation`: Option[String] = None,
-  `underscoreType`: Option[String] = None,
+  httpDebugOperation: Option[String] = None,
   `type`: Option[String] = None,
-  `typeWithUnderscore`: Option[String] = None
+  `type`: Option[String] = None,
+  `type`: Option[String] = None
 )
 

@@ -31,7 +31,7 @@ docs/Foo.md
 docs/FooGetDefaultResponse.md
 docs/FormatTest.md
 docs/HasOnlyReadOnly.md
-docs/HealthCheckStatus.md
+docs/HealthCheckResult.md
 docs/List.md
 docs/MapTest.md
 docs/MixedPropertiesAndAdditionalPropertiesClass.md
@@ -97,7 +97,7 @@ src/model/Foo.js
 src/model/FooGetDefaultResponse.js
 src/model/FormatTest.js
 src/model/HasOnlyReadOnly.js
-src/model/HealthCheckStatus.js
+src/model/HealthCheckResult.js
 src/model/List.js
 src/model/MapTest.js
 src/model/MixedPropertiesAndAdditionalPropertiesClass.js
@@ -123,3 +123,4 @@ src/model/SpecialModelName.js
 src/model/StringOrBoolean.js
 src/model/Tag.js
 src/model/User.js
+test/model/HealthCheckResult.spec.js

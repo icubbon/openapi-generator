@@ -187,17 +187,17 @@ package body Samples.Petstore.Models is
                         Value : in Samples.Petstore.Models.PropertyNameMapping_Type) is
    begin
       Into.Start_Entity (Name);
-      if not Value.P_HTTPDebugOperation.Is_Null then
-         Into.Write_Entity ("http_debug_operation", Value.P_HTTPDebugOperation);
+      if not Value.Http_Debug_Operation.Is_Null then
+         Into.Write_Entity ("http_debug_operation", Value.Http_Debug_Operation);
       end if;
-      if not Value.P_UnderscoreType.Is_Null then
-         Into.Write_Entity ("_type", Value.P_UnderscoreType);
+      if not Value.P__type.Is_Null then
+         Into.Write_Entity ("_type", Value.P__type);
       end if;
       if not Value.P_Type.Is_Null then
          Into.Write_Entity ("type", Value.P_Type);
       end if;
-      if not Value.P_TypeWithUnderscore.Is_Null then
-         Into.Write_Entity ("type_", Value.P_TypeWithUnderscore);
+      if not Value.Type_.Is_Null then
+         Into.Write_Entity ("type_", Value.Type_);
       end if;
       Into.End_Entity (Name);
    end Serialize;
@@ -219,10 +219,10 @@ package body Samples.Petstore.Models is
       Object : Swagger.Value_Type;
    begin
       Swagger.Streams.Deserialize (From, Name, Object);
-      Swagger.Streams.Deserialize (Object, "http_debug_operation", Value.P_HTTPDebugOperation);
-      Swagger.Streams.Deserialize (Object, "_type", Value.P_UnderscoreType);
+      Swagger.Streams.Deserialize (Object, "http_debug_operation", Value.Http_Debug_Operation);
+      Swagger.Streams.Deserialize (Object, "_type", Value.P__type);
       Swagger.Streams.Deserialize (Object, "type", Value.P_Type);
-      Swagger.Streams.Deserialize (Object, "type_", Value.P_TypeWithUnderscore);
+      Swagger.Streams.Deserialize (Object, "type_", Value.Type_);
    end Deserialize;
 
    procedure Deserialize (From  : in Swagger.Value_Type;

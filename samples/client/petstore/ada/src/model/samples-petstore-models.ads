@@ -109,10 +109,10 @@ package Samples.Petstore.Models is
 
    type PropertyNameMapping_Type is
      record
-       P_HTTPDebugOperation : Swagger.Nullable_UString;
-       P_UnderscoreType : Swagger.Nullable_UString;
+       Http_Debug_Operation : Swagger.Nullable_UString;
+       P__type : Swagger.Nullable_UString;
        P_Type : Swagger.Nullable_UString;
-       P_TypeWithUnderscore : Swagger.Nullable_UString;
+       Type_ : Swagger.Nullable_UString;
      end record;
 
 

@@ -26,18 +26,18 @@ class FakeApi(baseUrl: String) {
    * Expected answers:
    *   code 200 :  (OK)
    * 
-   * @param underscoreType _type
-   * @param `type` type
-   * @param typeWithUnderscore type_
+   * @param `type` _type
+   * @param `type`2 type
+   * @param `type`3 type_
    * @param httpDebugOption http debug option (to test parameter naming option)
    */
-  def getParameterNameMapping(underscoreType: Long, `type`: String, typeWithUnderscore: String, httpDebugOption: String
+  def getParameterNameMapping(`type`: Long, &#x60;type&#x60;2: String, &#x60;type&#x60;3: String, httpDebugOption: String
 ): Request[Either[ResponseException[String, Exception], Unit], Any] =
     basicRequest
-      .method(Method.GET, uri"$baseUrl/fake/parameter-name-mapping?type=${ `type` }&http_debug_option=${ httpDebugOption }")
+      .method(Method.GET, uri"$baseUrl/fake/parameter-name-mapping?type=${ `type`2 }&http_debug_option=${ httpDebugOption }")
       .contentType("application/json")
-      .header("_type", underscoreType.toString)
-      .header("type_", typeWithUnderscore.toString)
+      .header("_type", `type`.toString)
+      .header("type_", `type`3.toString)
       .response(asJson[Unit])
 
 }

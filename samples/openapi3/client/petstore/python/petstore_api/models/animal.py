@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional, Union
+from typing import Optional
 from pydantic import BaseModel, Field, StrictStr
 
 class Animal(BaseModel):
@@ -93,7 +93,4 @@ class Animal(BaseModel):
                              json.dumps(obj) + ". Discriminator property name: " + cls.__discriminator_property_name +
                              ", mapping: " + json.dumps(cls.__discriminator_value_class_map))
 
-from petstore_api.models.cat import Cat
-from petstore_api.models.dog import Dog
-Animal.update_forward_refs()
 

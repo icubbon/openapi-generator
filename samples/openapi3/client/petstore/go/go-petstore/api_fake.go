@@ -784,27 +784,27 @@ func (a *FakeAPIService) FakeOuterStringSerializeExecute(r ApiFakeOuterStringSer
 type ApiGetParameterNameMappingRequest struct {
 	ctx context.Context
 	ApiService FakeAPI
-	underscoreType *int64
-	type_ *string
-	typeWithUnderscore *string
+	type_ *int64
+	type_2 *string
+	type_3 *string
 	httpDebugOption *string
 }
 
 // _type
-func (r ApiGetParameterNameMappingRequest) UnderscoreType(underscoreType int64) ApiGetParameterNameMappingRequest {
-	r.underscoreType = &underscoreType
-	return r
-}
-
-// type
-func (r ApiGetParameterNameMappingRequest) Type_(type_ string) ApiGetParameterNameMappingRequest {
+func (r ApiGetParameterNameMappingRequest) Type_(type_ int64) ApiGetParameterNameMappingRequest {
 	r.type_ = &type_
 	return r
 }
 
+// type
+func (r ApiGetParameterNameMappingRequest) Type_2(type_2 string) ApiGetParameterNameMappingRequest {
+	r.type_2 = &type_2
+	return r
+}
+
 // type_
-func (r ApiGetParameterNameMappingRequest) TypeWithUnderscore(typeWithUnderscore string) ApiGetParameterNameMappingRequest {
-	r.typeWithUnderscore = &typeWithUnderscore
+func (r ApiGetParameterNameMappingRequest) Type_3(type_3 string) ApiGetParameterNameMappingRequest {
+	r.type_3 = &type_3
 	return r
 }
 
@@ -849,20 +849,20 @@ func (a *FakeAPIService) GetParameterNameMappingExecute(r ApiGetParameterNameMap
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if r.underscoreType == nil {
-		return nil, reportError("underscoreType is required and must be specified")
-	}
 	if r.type_ == nil {
 		return nil, reportError("type_ is required and must be specified")
 	}
-	if r.typeWithUnderscore == nil {
-		return nil, reportError("typeWithUnderscore is required and must be specified")
+	if r.type_2 == nil {
+		return nil, reportError("type_2 is required and must be specified")
+	}
+	if r.type_3 == nil {
+		return nil, reportError("type_3 is required and must be specified")
 	}
 	if r.httpDebugOption == nil {
 		return nil, reportError("httpDebugOption is required and must be specified")
 	}
 
-	parameterAddToHeaderOrQuery(localVarQueryParams, "type", r.type_, "")
+	parameterAddToHeaderOrQuery(localVarQueryParams, "type", r.type_2, "")
 	parameterAddToHeaderOrQuery(localVarQueryParams, "http_debug_option", r.httpDebugOption, "")
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -881,8 +881,8 @@ func (a *FakeAPIService) GetParameterNameMappingExecute(r ApiGetParameterNameMap
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "_type", r.underscoreType, "")
-	parameterAddToHeaderOrQuery(localVarHeaderParams, "type_", r.typeWithUnderscore, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "_type", r.type_, "")
+	parameterAddToHeaderOrQuery(localVarHeaderParams, "type_", r.type_3, "")
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

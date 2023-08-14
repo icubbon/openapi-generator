@@ -23,7 +23,7 @@ pub enum GetParameterNameMappingError {
 }
 
 
-pub fn get_parameter_name_mapping(configuration: &configuration::Configuration, underscore_type: i64, r#type: &str, type_with_underscore: &str, dash_type: &str, http_debug_option: &str) -> Result<(), Error<GetParameterNameMappingError>> {
+pub fn get_parameter_name_mapping(configuration: &configuration::Configuration, _type: i64, r#type: &str, type_: &str, _type2: &str, http_debug_option: &str) -> Result<(), Error<GetParameterNameMappingError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -36,9 +36,9 @@ pub fn get_parameter_name_mapping(configuration: &configuration::Configuration, 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.header("_type", underscore_type.to_string());
-    local_var_req_builder = local_var_req_builder.header("type_", type_with_underscore.to_string());
-    local_var_req_builder = local_var_req_builder.header("-type", dash_type.to_string());
+    local_var_req_builder = local_var_req_builder.header("_type", _type.to_string());
+    local_var_req_builder = local_var_req_builder.header("type_", type_.to_string());
+    local_var_req_builder = local_var_req_builder.header("-type", _type2.to_string());
 
     let local_var_req = local_var_req_builder.build()?;
     let mut local_var_resp = local_var_client.execute(local_var_req)?;
